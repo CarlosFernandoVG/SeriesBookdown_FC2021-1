@@ -1,0 +1,118 @@
+# Proceso de Medias Móviles: $MA(q)$
+
+Estos modelos se puede decir son determinados por una fuente externa, además de que suponen linealidad. Es decir que el valor actual de la serie $X_t$ esta influenciado por los valores de la fuente externa.
+
+El modelo de medias móviles de orden $q$ está dado por:
+
+$$
+X_t - \mu =\epsilon_t - \theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}-...-\theta_q \epsilon_{t-q}
+$$
+
+Expresado en términos del operador de retardos
+$$
+\begin{split}
+X_t&=(1-\theta_1B-\theta_2B^2-...-\theta_qB^q)\epsilon_t\\
+&=\theta_q(B)\epsilon_t
+\end{split}
+$$
+donde $\epsilon_t$ es un proceso de ruido blanco, $\theta_1,\theta_2, ..., \theta_q$ son los parámetros del modelo.
+
+## Proceso de Medias Móviles de orden 1: $MA(1)$
+
+Este modelo determina el valor de $X_t$ en función de la innovación actual y su primer retardo, es decir:
+
+$$
+X_t=\epsilon_t-\theta\epsilon_{t-1}
+$$
+
+Expresando el polinomio en términos del operador de retardos queda:
+$$X_t=(1-\theta B)\epsilon_{t}$$
+$$X_t=\theta_1(B)\epsilon_{t}$$
+donde $\epsilon_t$ es un proceso de ruido blanco y $\theta$ es el parámetro.
+
+Asumiendo estacionariedad débil, se tiene que la media y la varianza del proceso serán:
+\begin{itemize}
+\item Media
+$$E(X_t)=E(\epsilon_t-\theta\epsilon_{t-1})$$
+$$E(X_t)=E(\epsilon_t)-\theta E(\epsilon_{t-1})$$
+$$E(X_t)=0$$
+\item Covarianza
+$$\gamma_0 = E[X_{t}-E[X_{t}]]^2=E[X_{t}]^2=E[\epsilon_t-\theta\epsilon_{t-1}]^2$$
+$$\gamma_0 = E(\epsilon_t)^2+\theta^2 E(\epsilon_{t-1})^2-2\theta E(\epsilon_{t}\epsilon_{t-1})=\sigma^2+\theta^2\sigma^2-0$$
+$$\gamma_0=(1+\theta^2)\sigma^2<\infty$$
+$$\gamma_1 = E(X_{t}-E[X_{t}])(X_{t-1}-E[X_{t-1}])=E[X_{t}X_{t-1}]$$
+$$\gamma_1= -\theta\sigma^2< \infty$$
+$$\gamma_2 = E(X_{t}-E[X_{t}])(X_{t-2}-E[X_{t-2}])=E[X_{t}X_{t-2}]=0$$
+
+Entonces la función de autocovarianzas de un modelo $MA(1)$ es:
+$$
+\gamma_k = \left\{
+\begin{array}{llll}
+(1+\theta^2)\sigma^2 \   \mbox{   si }\ k=0\\
+-\theta \sigma^2\ \mbox{si}\ k=1\\
+0\    \mbox{si}\   k>1\\
+\end{array}
+\right.
+$$
+Y la correspondiente función de autocorrelación de un modelo $MA(1)$ es:
+$$
+\rho_k = \left\{
+\begin{array}{llll}
+1 \   \mbox{   si }\ k=0\\
+\frac{-\theta}{1+\theta^2}\  \mbox{si}\ k=1\\
+0\    \mbox{si}\   k>1\\
+\end{array}
+\right.
+$$
+\end {itemize}
+
+## Proceso de Medias Móviles de orden 2: $MA(2)$
+
+Este modelo determina por:
+$$X_t=\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}$$
+Expresando el polinomio en términos del operador de retardos queda:
+$$X_t=(1-\theta_1 B-\theta_2B^2)\epsilon_{t}$$
+$$X_t=\theta(B)\epsilon_{t}$$
+donde $\epsilon_t$ es un proceso de ruido blanco y $\theta_1,\theta_2$ son los parámetros del modelo.
+
+Asumiendo estacionariedad débil, se tiene que la media y la varianza del proceso serán:
+\begin{itemize}
+\item Media
+$$E(X_t)=E(\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2})$$
+$$E(X_t)=E(\epsilon_t)-\theta_1 E(\epsilon_{t-1})-\theta_2 E(\epsilon_{t-2})$$
+$$E(X_t)=0$$
+\item Covarianza
+$$\gamma_0 = E[X_{t}-E[X_{t}]]^2=E[X_{t}]^2=E[\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}]^2$$
+$$\gamma_0=(1+\theta_1^2+\theta_2^2)\sigma^2<\infty$$
+$$\gamma_1 = E(X_{t}-E[X_{t}])(X_{t-1}-E[X_{t-1}])=E[X_{t}X_{t-1}]$$
+$$\gamma_1 =E[(\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2})(\epsilon_{t-1}-\theta_1\epsilon_{t-2}-\theta_2\epsilon_{t-3})]$$
+$$\gamma_1= (-\theta_1+\theta_1\theta_2)\sigma^2$$
+$$\gamma_2 = E(X_{t}-E[X_{t}])(X_{t-2}-E[X_{t-2}])=E[X_{t}X_{t-2}]$$
+$$\gamma_2 =E[(\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2})(\epsilon_{t-2}-\theta_1\epsilon_{t-3}-\theta_2\epsilon_{t-4})]$$
+$$\gamma_2= -\theta_2\sigma^2$$
+$$\gamma_3 = E(X_{t}-E[X_{t}])(X_{t-3}-E[X_{t-3}])=E[X_{t}X_{t-3}]$$
+$$\gamma_2 =E[(\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2})(\epsilon_{t-3}-\theta_1\epsilon_{t-4}-\theta_2\epsilon_{t-5})]$$
+$$\gamma_3= 0$$
+Entonces la función de autocovarianzas de un modelo $MA(2)$ es:
+$$
+\gamma_k = \left\{
+\begin{array}{llll}
+(1+\theta_1^2+\theta_2^2)\sigma^2 \   \mbox{   si }\ k=0\\
+(-\theta_1+\theta_1\theta_2) \sigma^2\ \mbox{si}\ k=1\\
+-\theta_2 \sigma^2\ \mbox{si}\ k=2\\
+0\    \mbox{si}\   k>2\\
+\end{array}
+\right.
+$$
+Y la correspondiente función de autocorrelación de un modelo $MA(2)$ es:
+$$
+\rho_k = \left\{
+\begin{array}{llll}
+1 \   \mbox{   si }\ k=0\\
+\frac{-\theta_1+\theta_1\theta_2}{1+\theta_1^2+\theta_2^2}\  \mbox{si}\ k=1\\
+\frac{-\theta_2}{1+\theta_1^2+\theta_2^2}\  \mbox{si}\ k=2\\
+0\    \mbox{si}\   k>2\\
+\end{array}
+\right.
+$$
+\end{itemize}

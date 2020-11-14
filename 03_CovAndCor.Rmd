@@ -1,0 +1,49 @@
+# Funciones de autocovarianza y autocorrelación
+
+Como se mencionó en el apartado anterior tenemos que para un proceso estacionario $X_t$,su esperanza es $E[X_t] = \mu$ y su varianza $Var[X_t]=E[X_t-\mu]^2=\sigma^2$ las cuales son constantes; así como las covarianzas $Cov(X_t,X_s)$, que son funciones que solamente dependen del tiempo que transcurre entre $t$ y $s$; entonces en este caso podemos escribir la covarianza entre $X_t$ y $X_{t+k}$ como:
+
+$$
+\gamma_k=Cov(X_t,X_{t+k})=E(X_t-\mu)(X_{t+k}-\mu)
+$$
+
+Y su correlación como:
+$$
+\rho_k =\frac{Cov(X_t,X_{t+k})}{\sqrt{Var(X_t)}\sqrt{Var(X_{t+k})}}=\frac{\gamma_k}{\gamma_0}
+$$
+
+donde, $Var(X_t) = Var(X_{t+k}) = \gamma_0$. 
+
+También conocida como la _función de autocorrelación_ (ACF), la cual es una medida de la relación para los valores de la serie respecto a los valores de esta misma, observados $k-t$ unidades de tiempo.
+
+La función de autocorrelación tiene las siguientes propiedades:
+
++ $\rho_0=1$
++ $-1\leq\rho_j\leq 1$
++ $\rho_j=\rho_{-j}$
+
+## Función de autocorrelación parcial 
+
+La función de correlación parcial estima la correlación entre una observación $k$ tiempos después de la observación actual removiendo los efectos de las correlaciones de las observaciones intermedias; es decir:
+
+$$
+\pi_j=cor(X_j,X_{j-k}|X_{j-1},X_{j-2},...X_{j-k-1})
+$$
+
+## Prueba de Ljung-Box
+
+Esta prueba permite probar en forma conjunta que todos los coeficientes de autocorrelación son simultáneamente iguales a cer, esto es que son independientes. La prueba está definida como
+
+$$
+LB=n(n+2)\sum_{k=1}^m\frac{\hat\rho_k^2}{n-k}\sim \chi_{(m)}^2
+$$
+donde $n$ es el tamaño de la muestra, $m$ la longitud del rezago.
+
+Las hipótesis de esta prueba son:
+
+$$
+\begin{array}{cc}
+H_0:\mbox{Las autocorrelaciones son independientes} & H_1: \mbox{Las autocorrelaciones no son independientes}
+\end{array}
+$$
+
+Entonces si $LB$ excede el valor crítico de la tabla $Ji$ cuadrada al nivel de significancia seleccionadao, no se acepta la hipótesis de que todos los coeficientes de autocorrelación son iguales a cero, por lo tanto al menos algunos de ellos deben ser diferentes de cero.

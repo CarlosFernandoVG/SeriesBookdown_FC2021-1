@@ -1,0 +1,84 @@
+# Predictores Lineales
+
+Sea $X_t$ un proceso estacionario. Se desea predecir $X_{n+1}$ en una función lineal de lo observado hasta el tiempo $n$ es decir con ${X_1,X_2,...,X_n}$.
+Entonces lo que buscamos es encontrar los coeficientes $a_i$ con $i=1,...,n$ tales que
+
+$$
+X_{n+1}=a_1X_n+a_2X_{n-1}+...+a_nX_1
+$$
+
+Utilizando las varianzas y covarianzas entre los elementos de la serie de tiempo se obtiene que una estimación de las $a_i's$ son las que den solución al siguiente sistema:
+
+$$
+\begin{bmatrix}
+    COV(X_1,X_1)       & COV(X_1,X_2)  & COV(X_1,X_3) & \dots & COV(X_1,X_n)  \\
+    COV(X_2,X_1)        & COV(X_2,X_2)  & COV(X_2,X_3)  & \dots &COV(X_2,X_n)  \\
+      \vdots & \vdots & \vdots & \ddots & \vdots \\ \\
+    COV(X_n,X_1)        & COV(X_n,X_2)  & COV(X_n,X_3)  & \dots & COV(X_n,X_n) 
+\end{bmatrix}
+\begin{bmatrix}
+a_1\\
+a_2\\
+\vdots\\
+a_n\\
+\end{bmatrix}
+= \\
+\begin{bmatrix}
+COV(X_{n+1},X_n)  \\
+COV(X_{n+1},X_{n-1})  \\
+    \vdots\\
+COV(X_{n+1},X_1)  \\
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+    \gamma_0      & \gamma_1  & \gamma_2 & \dots & \gamma_{n-1}  \\
+   \gamma_1       & \gamma_0  & \gamma_1  & \dots &\gamma_{n-2}  \\
+      \vdots & \vdots & \vdots & \ddots & \vdots \\ \\
+    \gamma_{n-1}       & \gamma_{n-2}  & \gamma_{n-3}  & \dots & \gamma_0 
+\end{bmatrix}
+\begin{bmatrix}
+a_1\\
+a_2\\
+\vdots\\
+a_n\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\gamma_1  \\
+\gamma_2  \\
+    \vdots\\
+\gamma_{n}  \\
+\end{bmatrix}
+$$
+En general si deseamos predecir $X_{n+h}$ dado ${X_1,X_2,...,X_n}$, el predictor lineal será
+
+$$
+X_{n+h}=a_1X_n+a_2X_{n-1}+...+a_nX_1
+$$
+
+En donde el mejor predictor lineal serán los $a_1,a_2,...,a_n$ tales que 
+
+$$
+\begin{bmatrix}
+    \gamma_0      & \gamma_1  & \gamma_2 & \dots & \gamma_{n-1}  \\
+   \gamma_1       & \gamma_0  & \gamma_1  & \dots &\gamma_{n-2}  \\
+      \vdots & \vdots & \vdots & \ddots & \vdots \\ \\
+    \gamma_{n-1}       & \gamma_{n-2}  & \gamma_{n-3}  & \dots & \gamma_0 
+\end{bmatrix}
+\begin{bmatrix}
+a_1\\
+a_2\\
+\vdots\\
+a_n\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\gamma_h  \\
+\gamma_{h+1}  \\
+    \vdots\\
+\gamma_{h+n}  \\
+\end{bmatrix}
+$$
+$$\Gamma \underline{a}=\gamma$$

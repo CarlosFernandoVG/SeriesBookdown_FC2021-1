@@ -1,0 +1,88 @@
+# Proceso Autoregresivo de Medias Móviles $ARMA(p,q)$           
+
+Es muy probable que una serie de tiempo $X_t$, tenga características de un proceso $AR$ y de un proceso $MA$ al mismo tiempo, por lo que será un proceso $ARMA$. Así, $X_t$ sigue un proceso $ARMA(p,q)$, y en este proceso habrá $p$  términos autoregresivos y $q$   términos de media móvil. Se verá de la siguiente forma: 
+
+$$
+X_t=\phi_1X_{t-1}+...+\phi_pX_{t-p}+\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}-...-\theta_q\epsilon_{t-q}
+$$
+  
+donde $\epsilon_t$ es un proceso de ruido blanco, y $\phi_1,...,\phi_p,\theta_1,...,\theta_q$ son los parámetros del modelo.
+
+Para un proceso $ARMA(p,q)$ una condición de estacionariedad es la misma que para un proceso $AR(p)$, y una condición de invertivilidad es la misma que para el proceso $MA(q)$.
+
+El modelo $ARMA(p,q)$ se puede escribir en términos de los operadores de retardo de la siguiente manera:
+
+$$
+\begin{array}{c}
+(1-\phi_1B-\phi_2B^2-...-\phi_pB^p)X_t=(1-\theta_1B-\theta_2B^2-...-\theta_qB^q)\epsilon_t\\
+\phi_p(L)X_t=\theta_q(L)\epsilon_t
+\end{array}
+$$
+
+Donde
++ $\phi_p(L)$ es el polinomio autoregresivo
++ $\theta_q(L)$ es el polinomio de medias móviles.
+
+Los modelos $ARMA(p,q)$ siempre compartirán las características de los modelos $AR(p)$ y $MA(q)$, ya que contiene ambas estructuras a la vez. El modelo $ARMA(p,q)$ tiene media cero y varianza constante y finita. La función de autocorrelación es infinita y decrece rápidamente hacia cero.         
+
+## Proceso Autoregresivo de Medias Móviles $ARMA(1,1)$
+
+En un modelo $ARMA(1,1)$ la serie de tiempo $X_t$ se determina en función de su pasado hasta el primer retardo, la innovación actual y el pasado de la innovación hasta el primer retardo.     
+
+
+$$
+X_t=\phi_1X_{t-1}+\epsilon_t-\theta_1\epsilon_{t-1}
+$$
+
+donde $\epsilon_t$ es un proceso de ruido blanco, y $\phi_1$ y $\theta_1$ son los parámetros del modelo. Ahora se verán las caracteristicas de un proceso $ARMA(1,1)$ estacionario.
+
+### Media
+
+$$
+E(X_t)=E(\phi_1X_{t-1}+\epsilon_t-\theta_1\epsilon_{t-1})=\phi_1E(X_{t-1})=0
+$$
+
+### Covarianzas
+
+$$
+\begin{split}
+\gamma_0 &=E(X_t-E(X_t))^2=E(X_t)^2=E(\phi_1X_{t-1}+\epsilon_t-\theta_1\epsilon_{t-1})^2\\
+& =\frac{(1+\theta_1^2-2\phi_1\theta_1)\sigma^2}{1-\phi_1^2}\\
+\end{split}
+$$
+
+$$
+\begin{split}
+\gamma_1 & =E[(X_t-E(X_t))(X_{t-1}-E(X_{t-1}))]=E[X_tX_{t-1}]\\
+&=E[(\phi_1X_{t-1}+\epsilon_t-\theta_1\epsilon_{t-1})X_{t-1}]\\
+&=\phi_1\gamma_0-\theta_1\sigma^2
+\end{split}
+$$
+$$
+\begin{split}
+\gamma_2&=E[(X_t-E(X_t))(X_{t-2}-E(X_{t-2}))]=E[X_tX_{t-2}]\\
+&=\phi_1\gamma_1
+\end{split}
+$$
+
+Entonces la función de autocovarianzas de un proceso $ARMA(1,1)$ es:
+
+
+$$  
+\gamma_{k} =
+\begin{cases}
+\frac{(1+\theta_1^2-2\phi_1\theta_1)\sigma^2}{1-\phi_1^2} & k=0\\
+\phi_1\gamma_0-\theta_1\sigma^2 & k=1\\
+\phi_1\gamma_{k-1} & k>1
+\end{cases}       
+$$
+Y la función de autocorrelación de un proceso $ARMA(1,1)$ es:
+
+$$ 
+\rho_{k} =
+\begin{cases}
+1 & k=0\\
+\phi_1-\frac{\theta_1\sigma^2}{\gamma_0} & k=1\\
+\phi_1\rho_{k-1} & k>1
+\end{cases}       
+$$

@@ -1,0 +1,34 @@
+# Procesos estocásticos
+
+La palabra estocástico, que tiene origen Griego, era usada bajo el significado de *perteneciente al azar*. En ese sentido un proceso estocástico se define como un conjunto de variables aleatorias ordenadas según el tiempo (o el espacio que corresponda), el cual puede ser continuo o discreto.
+Se denota la variable aleatoria en el tiempo $t$ por $X(t)$ o $X_t$ con $-\infty < t < \infty$ en caso de ser continua o bien $t = (0, \pm1, \pm2, ... )$ en caso de ser discreta.
+
+Como un ejemplo de proceso estocástico tenemos, el número de personas que esperan en una fila en el instante $t$ del tiempo.
+
+## Proceso estocástico estacionario
+
+Al trabajar con series de tiempo el escenario ideal sería trabajar con series que posean la característica de tener la media y la autocovarianza constantes a lo largo del tiempo, es decir, que sus valores oscilen dentro de un rango de valores y no muestren tendencia clara, creciente o decreciente, teóricamente conocidos como procesos estacionarios. Para definir un proceso estocástico como un proceso estacionario es sumamente necesario conocer la función de densidad conjunta de las variables aleatorias que conforman el proceso, no obstante, en la práctica no es común que se logre. Es por esto por lo que los procesos estacionarios se pueden definir de la siguiente forma:
+
++ **Procesos estrictamente estacionarios:** Se dice que un proceso $X_t, t \in Z$ es estrictamente estacionario, si sus funciones de densidad para un conjunto arbitrario de variables $X_t,X_{t+1}, ... , X_{t+m}$ son invariantes respecto a desplazamientos en el tiempo, es decir, que cumplen:
+$$
+\begin{array}{cc}
+f(X_t,X_{t+1}, ... , X_{t+m}) = f(X_{t+k}, X_{t+k+1}, ... , X_{t+k+m}) & \forall t, m, k \in Z
+\end{array}
+$$
+
++ **Procesos débilmente estacionarios:** Un proceso $X_t,t\in Z$ se dice que es débilmente estacionario de orden $k$ si los primeros $k$ momentos son invariantes a través del tiempo. Podemos definir un proceso débilmente estacionario de segundo orden si cumple lo siguiente:
+  1. $E[|X_t|^2]< \infty \forall t \in Z$
+  2. $E[X_t] = \mu \forall t \in Z$, lo cual quiere decir que las esperanzas de las variables aleatorias son independientes del tiempo por lo cual permanecen constantes.
+  3. $Cov(X_t,X_s) = Cov (X_{t+m}, X_{s+m}) \forall t, s, m \in Z$, es decir las covarianzas de dos variables aleatorias del proceso que se encuentran en distintos puntos del tiempo dependen solamente del lapso transcurrido entre cada una de ellas.
+
+En resumen, si una serie es estacionaria, su media, su varianza y su autocovarianza (en diferentes rezagos) permanecen iguales sin importar el momento en el cual se midan; es decir, son invariantes respecto al tiempo.
+
+## Ruido blanco ("white noise")
+
+Un ruido blanco es un caso simple de los procesos estocásticos, donde los valores son independientes e idénticamente distribuidos a lo largo del tiempo con media cero e igual varianza, se denota por $\epsilon_t$.
+$$
+\begin{array}{c}
+\epsilon_t \sim N(0,\sigma^2)\\
+Cov(\epsilon_{t_i},\epsilon_{t_j})=0 \space \forall t_i \neq t_j
+\end{array}
+$$
