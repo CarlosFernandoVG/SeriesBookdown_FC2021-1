@@ -1,6 +1,6 @@
 # (PART) Procesos lineales estacionarios {-}
 
-# Proceso Autoregresivo $AR(p)$
+# $AR(p)$: Proceso Autoregresivo
 
 Los modelos autoregresivos se basan en la idea de que el valor actual de la serie $X_t$, puede explicarse en función de $p$ valores pasados $X_{t-1},X_{t-2},...X_{t-p}$, donde $p$ determina el número de rezagos necesarios para pronosticar un valor actual.
 

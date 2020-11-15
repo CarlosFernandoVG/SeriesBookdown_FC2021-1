@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 1 Procesos estocásticos | Análisis de Series de Tiempo</title>
+  <title>Capítulo 8 \(IMA(d,q)\): Proceso Integrado y de Media Móvil | Análisis de Series de Tiempo</title>
   <meta name="description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 1 Procesos estocásticos | Análisis de Series de Tiempo" />
+  <meta property="og:title" content="Capítulo 8 \(IMA(d,q)\): Proceso Integrado y de Media Móvil | Análisis de Series de Tiempo" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 1 Procesos estocásticos | Análisis de Series de Tiempo" />
+  <meta name="twitter:title" content="Capítulo 8 \(IMA(d,q)\): Proceso Integrado y de Media Móvil | Análisis de Series de Tiempo" />
   
   <meta name="twitter:description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="series-de-tiempo.html"/>
-<link rel="next" href="funciones-de-autocovarianza-y-autocorrelación.html"/>
+<link rel="prev" href="arimapdq-proceso-autoregresivo-integrado-y-de-medias-móviles.html"/>
+<link rel="next" href="predictores-lineales.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -153,56 +153,40 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="procesos-estocásticos" class="section level1" number="1">
-<h1><span class="header-section-number">Capítulo 1</span> Procesos estocásticos</h1>
-<p>La palabra estocástico, que tiene origen Griego, era usada bajo el significado de <em>perteneciente al azar</em>. En ese sentido un proceso estocástico se define como un conjunto de variables aleatorias ordenadas según el tiempo (o el espacio que corresponda), el cual puede ser continuo o discreto.
-Se denota la variable aleatoria en el tiempo <span class="math inline">\(t\)</span> por <span class="math inline">\(X(t)\)</span> o <span class="math inline">\(X_t\)</span> con <span class="math inline">\(-\infty &lt; t &lt; \infty\)</span> en caso de ser continua o bien <span class="math inline">\(t = (0, \pm1, \pm2, ... )\)</span> en caso de ser discreta.</p>
-<p>Como un ejemplo de proceso estocástico tenemos, el número de personas que esperan en una fila en el instante <span class="math inline">\(t\)</span> del tiempo.</p>
-<div id="proceso-estocástico-estacionario" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Proceso estocástico estacionario</h2>
-<p>Al trabajar con series de tiempo el escenario ideal sería trabajar con series que posean la característica de tener la media y la autocovarianza constantes a lo largo del tiempo, es decir, que sus valores oscilen dentro de un rango de valores y no muestren tendencia clara, creciente o decreciente, teóricamente conocidos como procesos estacionarios. Para definir un proceso estocástico como un proceso estacionario es sumamente necesario conocer la función de densidad conjunta de las variables aleatorias que conforman el proceso, no obstante, en la práctica no es común que se logre. Es por esto por lo que los procesos estacionarios se pueden definir de la siguiente forma:</p>
-<ul>
-<li><p><strong>Procesos estrictamente estacionarios:</strong> Se dice que un proceso <span class="math inline">\(X_t, t \in Z\)</span> es estrictamente estacionario, si sus funciones de densidad para un conjunto arbitrario de variables <span class="math inline">\(X_t,X_{t+1}, ... , X_{t+m}\)</span> son invariantes respecto a desplazamientos en el tiempo, es decir, que cumplen:
-<span class="math display">\[
-\begin{array}{cc}
-f(X_t,X_{t+1}, ... , X_{t+m}) = f(X_{t+k}, X_{t+k+1}, ... , X_{t+k+m}) &amp; \forall t, m, k \in Z
-\end{array}
-\]</span></p></li>
-<li><p><strong>Procesos débilmente estacionarios:</strong> Un proceso <span class="math inline">\(X_t,t\in Z\)</span> se dice que es débilmente estacionario de orden <span class="math inline">\(k\)</span> si los primeros <span class="math inline">\(k\)</span> momentos son invariantes a través del tiempo. Podemos definir un proceso débilmente estacionario de segundo orden si cumple lo siguiente:</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(E[|X_t|^2]&lt; \infty \forall t \in Z\)</span></li>
-<li><span class="math inline">\(E[X_t] = \mu \forall t \in Z\)</span>, lo cual quiere decir que las esperanzas de las variables aleatorias son independientes del tiempo por lo cual permanecen constantes.</li>
-<li><span class="math inline">\(Cov(X_t,X_s) = Cov (X_{t+m}, X_{s+m}) \forall t, s, m \in Z\)</span>, es decir las covarianzas de dos variables aleatorias del proceso que se encuentran en distintos puntos del tiempo dependen solamente del lapso transcurrido entre cada una de ellas.</li>
-</ol></li>
-</ul>
-<p>En resumen, si una serie es estacionaria, su media, su varianza y su autocovarianza (en diferentes rezagos) permanecen iguales sin importar el momento en el cual se midan; es decir, son invariantes respecto al tiempo.</p>
-</div>
-<div id="ruido-blanco-white-noise" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Ruido blanco (“white noise”)</h2>
-<p>Un ruido blanco es un caso simple de los procesos estocásticos, donde los valores son independientes e idénticamente distribuidos a lo largo del tiempo con media cero e igual varianza, se denota por <span class="math inline">\(\epsilon_t\)</span>.
-<span class="math display">\[
+<div id="imadq-proceso-integrado-y-de-media-móvil" class="section level1" number="8">
+<h1><span class="header-section-number">Capítulo 8</span> <span class="math inline">\(IMA(d,q)\)</span>: Proceso Integrado y de Media Móvil</h1>
+<p>Este proceso es un caso particular del proceso <span class="math inline">\(ARIMA(p,d,q)\)</span> cuando <span class="math inline">\(p=0\)</span>. Se calculan las diferencias de la serie de tiempo <span class="math inline">\(d\)</span> veces para convertir la serie en estacionaria y luego se aplica un modelo <span class="math inline">\(MA(q)\)</span>.</p>
+<p>Por ejemplo:</p>
+<p>Sea <span class="math inline">\(Z_1, Z_2, Z_3, Z_4, Z_5\)</span> la serie de tiempo original. Entonces la serie diferenciada de orden uno será:</p>
+<p><span class="math display">\[
 \begin{array}{c}
-\epsilon_t \sim N(0,\sigma^2)\\
-Cov(\epsilon_{t_i},\epsilon_{t_j})=0 \space \forall t_i \neq t_j
+Y_1=Z_2-Z_1\\
+Y_2=Z_3-Z_2\\
+Y_3=Z_4-Z_3\\
+Y_4=Z_5-Z_4
 \end{array}
 \]</span></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="caminata-aleatoria" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Caminata aleatoria</h2>
-<p>Es un proceso estocástico <span class="math inline">\(X_t\)</span> donde la primera diferencia de este proceso es un ruido blanco: <span class="math inline">\(\nabla X_{t} = \epsilon_t\)</span></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>La anterior gráfica esta basada con 100 simulaciones de una normal estandar bajo una semilla en 123 ¿Qué sucede al aumentar la cantidad de datos? ¿Por qué sucede este nuevo comportamiento?</p>
+<p>Y la serie diferenciada de orden dos será:</p>
+<p><span class="math display">\[
+\begin{split}
+X_1=Y_2+Y_1=Z_3-Z_2-Z_2-Z_1=Z_3-Z_1\\
+X_2=Y_3+Y_2=Z_4-Z_2\\
+X_3=Y_4+Y_3=Z_5-Z_3
+\end{split}
+\]</span>
+Por lo tanto al hacer diferencia de orden 2 a la serie de tiempo original <span class="math inline">\(Z_t\)</span>, se obtiene una serie de tiempo <span class="math inline">\(X_1, X_2, X_3\)</span> que ya es estacionaria y a esta se la aplicaría un modelo de medias móviles <span class="math inline">\(MA(q)\)</span>, por ejemplo si <span class="math inline">\(q=1\)</span> se ajustaría un modelo <span class="math inline">\(X_t=X_{t-1}+\epsilon_t\)</span>, donde <span class="math inline">\(\epsilon_t\)</span> es ruido blanco.</p>
 
 </div>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="series-de-tiempo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="funciones-de-autocovarianza-y-autocorrelación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="arimapdq-proceso-autoregresivo-integrado-y-de-medias-móviles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="predictores-lineales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

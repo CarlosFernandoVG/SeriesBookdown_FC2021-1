@@ -32,3 +32,44 @@ $$
 Cov(\epsilon_{t_i},\epsilon_{t_j})=0 \space \forall t_i \neq t_j
 \end{array}
 $$
+
+```{r}
+set.seed(10)
+whitenoise <- tibble(x = 1:100, y = rnorm(100, mean = 0, sd = 1))
+(whitenoise %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_line(color = "darkslateblue") + 
+  lims(y = c(-4, 4)) + 
+  labs(x = "Tiempo") +
+  ggtitle(TeX("N(0,1)")) + 
+  geom_hline(yintercept = 0) +
+  general_theme) +
+(autoplot(acf(ts(whitenoise$y, start = 1, end = 100), plot = FALSE), colour = "darkslateblue") +
+  geom_hline(yintercept = 0) +
+  ggtitle("Autocorrelación") +
+  labs(x = "Rezago") + 
+  general_theme) 
+# plot(ts(whitenoise$y, start = 1, end = 100))
+```
+
+## Caminata aleatoria
+
+Es un proceso estocástico $X_t$ donde la primera diferencia de este proceso es un ruido blanco: $\nabla X_{t} = \epsilon_t$
+
+```{r}
+set.seed(123)
+walkRandom <- tibble(time = 1:100, random = rnorm(100), walk = cumsum(random))
+(walkRandom %>%
+  ggplot(aes(x = time, y = walk)) +
+  geom_line(color = "dodgerblue3") + 
+  labs(x = "Tiempo", y = NULL) +
+  ggtitle("Caminata Aleatoria") +
+  general_theme) + 
+(autoplot(acf(ts(walkRandom$walk), plot = FALSE), colour = "dodgerblue3") +
+  geom_hline(yintercept = 0) +
+  ggtitle("Autocorrelación") +
+  labs(x = "Rezago") + 
+  general_theme)
+```
+
+La anterior gráfica esta basada con 100 simulaciones de una normal estandar bajo una semilla en 123 ¿Qué sucede al aumentar la cantidad de datos? ¿Por qué sucede este nuevo comportamiento?

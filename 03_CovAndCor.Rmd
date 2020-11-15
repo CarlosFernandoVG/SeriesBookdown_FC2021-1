@@ -13,7 +13,7 @@ $$
 
 donde, $Var(X_t) = Var(X_{t+k}) = \gamma_0$. 
 
-También conocida como la _función de autocorrelación_ (ACF), la cual es una medida de la relación para los valores de la serie respecto a los valores de esta misma, observados $k-t$ unidades de tiempo.
+También conocida como la **función de autocorrelación (ACF)**, la cual es una medida de la relación para los valores de la serie respecto a los valores de esta misma, observados $k-t$ unidades de tiempo.
 
 La función de autocorrelación tiene las siguientes propiedades:
 
@@ -26,7 +26,7 @@ La función de autocorrelación tiene las siguientes propiedades:
 La función de correlación parcial estima la correlación entre una observación $k$ tiempos después de la observación actual removiendo los efectos de las correlaciones de las observaciones intermedias; es decir:
 
 $$
-\pi_j=cor(X_j,X_{j-k}|X_{j-1},X_{j-2},...X_{j-k-1})
+\pi_j=corr(X_j,X_{j-k}|X_{j-1},X_{j-2},...X_{j-k-1})
 $$
 
 ## Prueba de Ljung-Box
@@ -46,4 +46,4 @@ H_0:\mbox{Las autocorrelaciones son independientes} & H_1: \mbox{Las autocorrela
 \end{array}
 $$
 
-Entonces si $LB$ excede el valor crítico de la tabla $Ji$ cuadrada al nivel de significancia seleccionadao, no se acepta la hipótesis de que todos los coeficientes de autocorrelación son iguales a cero, por lo tanto al menos algunos de ellos deben ser diferentes de cero.
+Entonces si $LB$ excede el valor crítico de la tabla $Ji$ cuadrada al nivel de significancia seleccionado, no se acepta la hipótesis de que todos los coeficientes de autocorrelación son iguales a cero, por lo tanto al menos algunos de ellos deben ser diferentes de cero.

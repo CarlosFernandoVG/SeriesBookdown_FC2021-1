@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 1 Procesos estocásticos | Análisis de Series de Tiempo</title>
+  <title>Capítulo 5 \(MA(q)\): Proceso de Medias Móviles | Análisis de Series de Tiempo</title>
   <meta name="description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 1 Procesos estocásticos | Análisis de Series de Tiempo" />
+  <meta property="og:title" content="Capítulo 5 \(MA(q)\): Proceso de Medias Móviles | Análisis de Series de Tiempo" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 1 Procesos estocásticos | Análisis de Series de Tiempo" />
+  <meta name="twitter:title" content="Capítulo 5 \(MA(q)\): Proceso de Medias Móviles | Análisis de Series de Tiempo" />
   
   <meta name="twitter:description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="series-de-tiempo.html"/>
-<link rel="next" href="funciones-de-autocovarianza-y-autocorrelación.html"/>
+<link rel="prev" href="arp-proceso-autoregresivo.html"/>
+<link rel="next" href="armapq-proceso-autoregresivo-de-medias-móviles.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -153,46 +153,131 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="procesos-estocásticos" class="section level1" number="1">
-<h1><span class="header-section-number">Capítulo 1</span> Procesos estocásticos</h1>
-<p>La palabra estocástico, que tiene origen Griego, era usada bajo el significado de <em>perteneciente al azar</em>. En ese sentido un proceso estocástico se define como un conjunto de variables aleatorias ordenadas según el tiempo (o el espacio que corresponda), el cual puede ser continuo o discreto.
-Se denota la variable aleatoria en el tiempo <span class="math inline">\(t\)</span> por <span class="math inline">\(X(t)\)</span> o <span class="math inline">\(X_t\)</span> con <span class="math inline">\(-\infty &lt; t &lt; \infty\)</span> en caso de ser continua o bien <span class="math inline">\(t = (0, \pm1, \pm2, ... )\)</span> en caso de ser discreta.</p>
-<p>Como un ejemplo de proceso estocástico tenemos, el número de personas que esperan en una fila en el instante <span class="math inline">\(t\)</span> del tiempo.</p>
-<div id="proceso-estocástico-estacionario" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Proceso estocástico estacionario</h2>
-<p>Al trabajar con series de tiempo el escenario ideal sería trabajar con series que posean la característica de tener la media y la autocovarianza constantes a lo largo del tiempo, es decir, que sus valores oscilen dentro de un rango de valores y no muestren tendencia clara, creciente o decreciente, teóricamente conocidos como procesos estacionarios. Para definir un proceso estocástico como un proceso estacionario es sumamente necesario conocer la función de densidad conjunta de las variables aleatorias que conforman el proceso, no obstante, en la práctica no es común que se logre. Es por esto por lo que los procesos estacionarios se pueden definir de la siguiente forma:</p>
-<ul>
-<li><p><strong>Procesos estrictamente estacionarios:</strong> Se dice que un proceso <span class="math inline">\(X_t, t \in Z\)</span> es estrictamente estacionario, si sus funciones de densidad para un conjunto arbitrario de variables <span class="math inline">\(X_t,X_{t+1}, ... , X_{t+m}\)</span> son invariantes respecto a desplazamientos en el tiempo, es decir, que cumplen:
-<span class="math display">\[
-\begin{array}{cc}
-f(X_t,X_{t+1}, ... , X_{t+m}) = f(X_{t+k}, X_{t+k+1}, ... , X_{t+k+m}) &amp; \forall t, m, k \in Z
-\end{array}
-\]</span></p></li>
-<li><p><strong>Procesos débilmente estacionarios:</strong> Un proceso <span class="math inline">\(X_t,t\in Z\)</span> se dice que es débilmente estacionario de orden <span class="math inline">\(k\)</span> si los primeros <span class="math inline">\(k\)</span> momentos son invariantes a través del tiempo. Podemos definir un proceso débilmente estacionario de segundo orden si cumple lo siguiente:</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(E[|X_t|^2]&lt; \infty \forall t \in Z\)</span></li>
-<li><span class="math inline">\(E[X_t] = \mu \forall t \in Z\)</span>, lo cual quiere decir que las esperanzas de las variables aleatorias son independientes del tiempo por lo cual permanecen constantes.</li>
-<li><span class="math inline">\(Cov(X_t,X_s) = Cov (X_{t+m}, X_{s+m}) \forall t, s, m \in Z\)</span>, es decir las covarianzas de dos variables aleatorias del proceso que se encuentran en distintos puntos del tiempo dependen solamente del lapso transcurrido entre cada una de ellas.</li>
-</ol></li>
-</ul>
-<p>En resumen, si una serie es estacionaria, su media, su varianza y su autocovarianza (en diferentes rezagos) permanecen iguales sin importar el momento en el cual se midan; es decir, son invariantes respecto al tiempo.</p>
-</div>
-<div id="ruido-blanco-white-noise" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Ruido blanco (“white noise”)</h2>
-<p>Un ruido blanco es un caso simple de los procesos estocásticos, donde los valores son independientes e idénticamente distribuidos a lo largo del tiempo con media cero e igual varianza, se denota por <span class="math inline">\(\epsilon_t\)</span>.
-<span class="math display">\[
-\begin{array}{c}
-\epsilon_t \sim N(0,\sigma^2)\\
-Cov(\epsilon_{t_i},\epsilon_{t_j})=0 \space \forall t_i \neq t_j
+<div id="maq-proceso-de-medias-móviles" class="section level1" number="5">
+<h1><span class="header-section-number">Capítulo 5</span> <span class="math inline">\(MA(q)\)</span>: Proceso de Medias Móviles</h1>
+<p>Estos modelos se puede decir son determinados por una fuente externa, además de que suponen linealidad. Es decir que el valor actual de la serie <span class="math inline">\(X_t\)</span> esta influenciado por los valores de la fuente externa.</p>
+<p>El modelo de medias móviles de orden <span class="math inline">\(q\)</span> está dado por:</p>
+<p><span class="math display">\[
+MA(q): X_t - \mu =\epsilon_t - \theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}-...-\theta_q \epsilon_{t-q}
+\]</span></p>
+<p>Expresado en términos del operador de retardos</p>
+<p><span class="math display">\[
+\begin{split}
+X_t&amp;=\mu+(1-\theta_1B-\theta_2B^2-...-\theta_qB^q)\epsilon_t\\
+&amp;=\mu+\theta_q(B)\epsilon_t
+\end{split}
+\]</span>
+donde <span class="math inline">\(\epsilon_t\)</span> es un proceso de ruido blanco, <span class="math inline">\(\theta_1,\theta_2, ..., \theta_q\)</span> son los parámetros del modelo.</p>
+<p>Antes de continuar, véase que es posible escribir un modelo <span class="math inline">\(AR\)</span> con un <span class="math inline">\(MA\)</span>. Supongamos un modelo <span class="math inline">\(AR(2)\)</span>, en el cual se tiene lo siguiente</p>
+<p><span class="math display">\[
+\begin{array}{ll}
+AR(2): X_t = \phi_0+\phi_1X_{t-1}+\phi_2X_{t-2}+\epsilon_t\\
+\implies \phi(B)X_t = (1-\phi_1B^1-\phi_2B^2)X_t = \phi_0+\epsilon\\
+\therefore X_t = \frac{\phi_0}{\phi(B)}+\frac{\epsilon_t}{\phi(B)} = \mu+(1-\psi_1B^1-\psi_2B^2-\cdots)\epsilon_t
 \end{array}
 \]</span></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Sin olvidar que las condiciones de estacionalidad para un proceso <span class="math inline">\(AR(1)\)</span> y <span class="math inline">\(AR(2)\)</span> son <span class="math inline">\(|\phi_1|&lt;1\)</span> y <span class="math inline">\(|1-\phi_1-\phi_2|&gt;0\)</span> respectivamente.</p>
+<div id="proceso-de-medias-móviles-de-orden-1-ma1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Proceso de Medias Móviles de orden 1: <span class="math inline">\(MA(1)\)</span></h2>
+<p>Este modelo determina el valor de <span class="math inline">\(X_t\)</span> en función de la innovación actual y su primer retardo, es decir:</p>
+<p><span class="math display">\[
+\begin{split}
+&amp; X_t=\theta_0-\theta_1\epsilon_{t-1}-\epsilon_t = \mu-\theta_1\epsilon_{t-1}-\epsilon_t \\
+\implies &amp;X_t=\mu-(1+\theta_1 B)\epsilon_{t}
+\end{split}
+\]</span>
+donde <span class="math inline">\(\epsilon_t\)</span> es un proceso de ruido blanco y <span class="math inline">\(\theta\)</span> es el parámetro. Además, véase que</p>
+<p><span class="math display">\[
+\mathbb{E}(X_t) = \mu-\theta_1\mathbb{E}(\epsilon_{t-1})-\mathbb{E}(\epsilon_{t}) = \mu
+\]</span></p>
+<p>Por lo que este proceso ya es estacionario en su media. Sólo resta estudiar el caso para la covarianza. Asumiendo estacionariedad débil, se tiene lo siguiente</p>
+<p><span class="math display">\[
+\begin{split}
+\gamma_0 &amp;= \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))^2\right]=\mathbb{E}\left[(\mu-\theta_1\epsilon_{t-1}-\epsilon_t-\mu)^2\right]\\
+&amp; = \mathbb{E}\left[\theta_1^2\epsilon_{t-1}^2+2\theta_1\epsilon_{t-1}\epsilon_{t}+\epsilon_t^2\right]\\
+&amp; = \theta_1^2\sigma^2+\sigma^2\\
+&amp; =(1+\theta_1^2)\sigma^2\\
+\\
+\gamma_1 &amp;= \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))(X_{t-1}-\mathbb{E}(X_{t-1}))\right]\\
+&amp; =\mathbb{E}\left[(-\epsilon_t-\theta_1\epsilon_{t-1})(-\epsilon_{t-1}-\theta_1\epsilon_{t-2})\right]\\
+&amp; = \mathbb{E}\left[\epsilon_t\epsilon_{t-1}+\theta_1\epsilon_t\epsilon_{t-2}+\theta_1\epsilon_{t-1}^2+\theta_1^2\epsilon_{t-1}\epsilon_{t-2}\right]\\
+&amp; =\theta_1\mathbb{E}\left[\epsilon_{t-1}^2\right]\\
+&amp;= \theta_1\sigma^2\\
+\\
+\gamma_2 &amp;= \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))(X_{t-2}-\mathbb{E}(X_{t-2}))\right] = 0\\
+\vdots
+\end{split}
+\]</span></p>
+<p>Entonces la <strong>función de autocovarianza</strong> de un modelo <span class="math inline">\(MA(1)\)</span> es:</p>
+<p><span class="math display">\[
+\gamma_k = \left\{
+\begin{array}{lr}
+(1+\theta^2)\sigma^2 &amp;   \mbox{ si } k=0\\
+\theta_1 \sigma^2 &amp; \mbox{ si } k=1\\
+0 &amp;    \mbox{ si } k&gt;1\\
+\end{array}
+\right.
+\]</span></p>
+<p>Y la correspondiente <strong>función de autocorrelación</strong> de un modelo <span class="math inline">\(MA(1)\)</span> es:</p>
+<p><span class="math display">\[
+\rho_k = \frac{\gamma_k}{\gamma_0} = \left\{
+\begin{array}{lr}
+1 &amp;  \mbox{ si } k=0\\
+\frac{\theta_1}{1+\theta_1^2} &amp;  \mbox{ si } k=1\\
+0 &amp; \mbox{ si } k&gt;1\\
+\end{array}
+\right.
+\]</span></p>
 </div>
-<div id="caminata-aleatoria" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Caminata aleatoria</h2>
-<p>Es un proceso estocástico <span class="math inline">\(X_t\)</span> donde la primera diferencia de este proceso es un ruido blanco: <span class="math inline">\(\nabla X_{t} = \epsilon_t\)</span></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>La anterior gráfica esta basada con 100 simulaciones de una normal estandar bajo una semilla en 123 ¿Qué sucede al aumentar la cantidad de datos? ¿Por qué sucede este nuevo comportamiento?</p>
+<div id="proceso-de-medias-móviles-de-orden-2-ma2" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Proceso de Medias Móviles de orden 2: <span class="math inline">\(MA(2)\)</span></h2>
+<p>Este modelo esta determinado por:</p>
+<p><span class="math display">\[
+\begin{split}
+MA(2): X_t &amp; = \theta_0-\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}\\
+X_t &amp; = \theta_0-(1+\theta_1 B+\theta_2B^2)\epsilon_{t}
+\end{split}
+\]</span></p>
+<p>donde <span class="math inline">\(\epsilon_t\)</span> es un proceso de ruido blanco y <span class="math inline">\(\theta_1,\theta_2\)</span> son los parámetros del modelo. Asumiendo estacionariedad débil, es fácil comprobar que <span class="math inline">\(\mathbb{E}(X_t) = \theta_0\)</span>. Respecto a la covarianza se tiene lo siguiente</p>
+<p><span class="math display">\[
+\begin{split}
+\gamma_0 &amp; = \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))^2\right]=\mathbb{E}\left[(-\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2})^2\right]\\
+&amp; = \mathbb{E}\left[\epsilon_t^2\right]+\theta_1^2\mathbb{E}\left[\epsilon_{t-1}\right]^2+\theta_2^2\mathbb{E}\left[\epsilon_{t-2}\right]^2\\
+&amp; = \left(1+\theta_1^2+\theta_2^2\right)\sigma^2\\
+\\
+\gamma_1 &amp; = \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))(X_{t-1}-\mathbb{E}(X_{t-1}))\right]\\
+&amp; = \mathbb{E}\left[(-\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2})(-\epsilon_{t-1}-\theta_1\epsilon_{t-2}-\theta_2\epsilon_{t-3})\right]\\
+&amp; = \mathbb{E}\left[\theta_1\epsilon_{t-1}^2+\theta_1\theta_2\epsilon_{t-2}^2\right]\\
+&amp; = \theta_1\left(1+\theta_2\right)\sigma^2\\
+\\
+\gamma_2 &amp; = \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))(X_{t-2}-\mathbb{E}(X_{t-2}))\right]\\
+&amp; = \mathbb{E}\left[(-\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2})(-\epsilon_{t-2}-\theta_1\epsilon_{t-3}-\theta_2\epsilon_{t-4})\right]\\
+&amp; = \theta_2\mathbb{E}\left[\epsilon_{t-2}^2\right]\\
+&amp; = \theta_2\sigma^2
+\end{split}
+\]</span></p>
+<p>Entonces la <strong>función de autocovarianza</strong> de un modelo <span class="math inline">\(MA(2)\)</span> es:</p>
+<p><span class="math display">\[
+\gamma_k = \left\{
+\begin{array}{lr}
+\left(1+\theta_1^2+\theta_2^2\right)\sigma^2 &amp; \mbox{ si } k=0\\
+\theta_1(1+\theta_2) \sigma^2 &amp; \mbox{ si }\ k=1\\
+\theta_2 \sigma^2 &amp; \mbox{ si } k=2\\
+0 &amp; \mbox{ si } k&gt;2\\
+\end{array}
+\right.
+\]</span></p>
+<p>Y la correspondiente <strong>función de autocorrelación</strong> de un modelo <span class="math inline">\(MA(2)\)</span> es:</p>
+<p><span class="math display">\[
+\rho_k = \left\{
+\begin{array}{lr}
+1 &amp;  \mbox{ si } k=0\\
+\frac{\theta_1+(1+\theta_2)}{1+\theta_1^2+\theta_2^2}&amp;  \mbox{ si } k=1\\
+\frac{\theta_2}{1+\theta_1^2+\theta_2^2}&amp;  \mbox{ si } k=2\\
+0 &amp;  \mbox{ si }  k&gt;2\\
+\end{array}
+\right.
+\]</span></p>
 
 </div>
 </div>
@@ -201,8 +286,8 @@ Cov(\epsilon_{t_i},\epsilon_{t_j})=0 \space \forall t_i \neq t_j
           </div>
         </div>
       </div>
-<a href="series-de-tiempo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="funciones-de-autocovarianza-y-autocorrelación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="arp-proceso-autoregresivo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="armapq-proceso-autoregresivo-de-medias-móviles.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

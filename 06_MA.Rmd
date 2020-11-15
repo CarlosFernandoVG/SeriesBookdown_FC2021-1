@@ -1,4 +1,4 @@
-# Proceso de Medias Móviles: $MA(q)$
+# $MA(q)$: Proceso de Medias Móviles
 
 Estos modelos se puede decir son determinados por una fuente externa, además de que suponen linealidad. Es decir que el valor actual de la serie $X_t$ esta influenciado por los valores de la fuente externa.
 
@@ -35,10 +35,10 @@ Sin olvidar que las condiciones de estacionalidad para un proceso $AR(1)$ y $AR(
 Este modelo determina el valor de $X_t$ en función de la innovación actual y su primer retardo, es decir:
 
 $$
-\begin{array}{l}
+\begin{split}
 & X_t=\theta_0-\theta_1\epsilon_{t-1}-\epsilon_t = \mu-\theta_1\epsilon_{t-1}-\epsilon_t \\
 \implies &X_t=\mu-(1+\theta_1 B)\epsilon_{t}
-\end{array}
+\end{split}
 $$
 donde $\epsilon_t$ es un proceso de ruido blanco y $\theta$ es el parámetro. Además, véase que
 
@@ -92,7 +92,7 @@ $$
 
 ## Proceso de Medias Móviles de orden 2: $MA(2)$
 
-Este modelo determina por:
+Este modelo esta determinado por:
 
 $$
 \begin{split}
