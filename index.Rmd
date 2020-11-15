@@ -1,5 +1,5 @@
 --- 
-title: "Análsis de Series de Tiempo"
+title: "Análisis de Series de Tiempo"
 author:
   - "Sofía Villers Gómez"
   - "Carlos Fernando Vásquez Guerra"
@@ -40,11 +40,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-Primera edición del bookdown  _Análsis de Series de Tiempo_ para su uso en la materia Análisis de Supervivencia y Series de tiempo y sus relacionadas impartidas por los autores, así como para aquellos estudiantes que deseen adquirir el conocimiento pertinente de tal tópico.
+Primera edición del bookdown  _Análisis de Series de Tiempo_ para su uso en la materia Análisis de Supervivencia y Series de tiempo y sus relacionadas impartidas por los autores, así como para aquellos estudiantes que deseen adquirir el conocimiento pertinente de tal tópico.
 
 ### Objetivos {-}
 
-+ Otorgar un material electrónico de calidad con el contenido referente al Análsis de Series de Tiempo como un esfuerzo de los autores para lograr un proceso de aprendizaje autodidacta por parte del alumno y así optimizar el tiempo, tanto de los profesores, como el de los alumnos.
++ Otorgar un material electrónico de calidad con el contenido referente al Análisis de Series de Tiempo como un esfuerzo de los autores para lograr un proceso de aprendizaje autodidacta por parte del alumno y así optimizar el tiempo, tanto de los profesores, como el de los alumnos.
 
 + Plasmar las bases teóricas de esta rama de la estadística con el uso de ejemplos y contenido visual para un mejor entendimiento de cada subtema que se trate.
 

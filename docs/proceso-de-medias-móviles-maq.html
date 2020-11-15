@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 5 Proceso de Medias Móviles: \(MA(q)\) | Análsis de Series de Tiempo</title>
+  <title>Capítulo 5 Proceso de Medias Móviles: \(MA(q)\) | Análisis de Series de Tiempo</title>
   <meta name="description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 5 Proceso de Medias Móviles: \(MA(q)\) | Análsis de Series de Tiempo" />
+  <meta property="og:title" content="Capítulo 5 Proceso de Medias Móviles: \(MA(q)\) | Análisis de Series de Tiempo" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 5 Proceso de Medias Móviles: \(MA(q)\) | Análsis de Series de Tiempo" />
+  <meta name="twitter:title" content="Capítulo 5 Proceso de Medias Móviles: \(MA(q)\) | Análisis de Series de Tiempo" />
   
   <meta name="twitter:description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -70,7 +70,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Análisis de Supervivencia</a></li>
+<li><a href="./">Análisis de Series de Tiempo</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
@@ -120,7 +120,7 @@
 </ul></li>
 <li class="chapter" data-level="6" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html"><i class="fa fa-check"></i><b>6</b> Proceso Autoregresivo de Medias Móviles <span class="math inline">\(ARMA(p,q)\)</span></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#proceso-autoregresivo-de-medias-móviles-arma11"><i class="fa fa-check"></i><b>6.1</b> Proceso Autoregresivo de Medias Móviles <span class="math inline">\(ARMA(1,1)\)</span></a>
+<li class="chapter" data-level="6.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#arma11"><i class="fa fa-check"></i><b>6.1</b> <span class="math inline">\(ARMA(1,1)\)</span></a>
 <ul>
 <li class="chapter" data-level="6.1.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#media"><i class="fa fa-check"></i><b>6.1.1</b> Media</a></li>
 <li class="chapter" data-level="6.1.2" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#covarianzas"><i class="fa fa-check"></i><b>6.1.2</b> Covarianzas</a></li>
@@ -142,7 +142,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análsis de Series de Tiempo</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análisis de Series de Tiempo</a>
           </h1>
         </div>
 
@@ -155,37 +155,126 @@
 <p>Estos modelos se puede decir son determinados por una fuente externa, además de que suponen linealidad. Es decir que el valor actual de la serie <span class="math inline">\(X_t\)</span> esta influenciado por los valores de la fuente externa.</p>
 <p>El modelo de medias móviles de orden <span class="math inline">\(q\)</span> está dado por:</p>
 <p><span class="math display">\[
-X_t - \mu =\epsilon_t - \theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}-...-\theta_q \epsilon_{t-q}
+MA(q): X_t - \mu =\epsilon_t - \theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}-...-\theta_q \epsilon_{t-q}
 \]</span></p>
-<p>Expresado en términos del operador de retardos
-<span class="math display">\[
+<p>Expresado en términos del operador de retardos</p>
+<p><span class="math display">\[
 \begin{split}
-X_t&amp;=(1-\theta_1B-\theta_2B^2-...-\theta_qB^q)\epsilon_t\\
-&amp;=\theta_q(B)\epsilon_t
+X_t&amp;=\mu+(1-\theta_1B-\theta_2B^2-...-\theta_qB^q)\epsilon_t\\
+&amp;=\mu+\theta_q(B)\epsilon_t
 \end{split}
 \]</span>
 donde <span class="math inline">\(\epsilon_t\)</span> es un proceso de ruido blanco, <span class="math inline">\(\theta_1,\theta_2, ..., \theta_q\)</span> son los parámetros del modelo.</p>
+<p>Antes de continuar, véase que es posible escribir un modelo <span class="math inline">\(AR\)</span> con un <span class="math inline">\(MA\)</span>. Supongamos un modelo <span class="math inline">\(AR(2)\)</span>, en el cual se tiene lo siguiente</p>
+<p><span class="math display">\[
+\begin{array}{ll}
+AR(2): X_t = \phi_0+\phi_1X_{t-1}+\phi_2X_{t-2}+\epsilon_t\\
+\implies \phi(B)X_t = (1-\phi_1B^1-\phi_2B^2)X_t = \phi_0+\epsilon\\
+\therefore X_t = \frac{\phi_0}{\phi(B)}+\frac{\epsilon_t}{\phi(B)} = \mu+(1-\psi_1B^1-\psi_2B^2-\cdots)\epsilon_t
+\end{array}
+\]</span></p>
+<p>Sin olvidar que las condiciones de estacionalidad para un proceso <span class="math inline">\(AR(1)\)</span> y <span class="math inline">\(AR(2)\)</span> son <span class="math inline">\(|\phi_1|&lt;1\)</span> y <span class="math inline">\(|1-\phi_1-\phi_2|&gt;0\)</span> respectivamente.</p>
 <div id="proceso-de-medias-móviles-de-orden-1-ma1" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Proceso de Medias Móviles de orden 1: <span class="math inline">\(MA(1)\)</span></h2>
 <p>Este modelo determina el valor de <span class="math inline">\(X_t\)</span> en función de la innovación actual y su primer retardo, es decir:</p>
 <p><span class="math display">\[
-X_t=\epsilon_t-\theta\epsilon_{t-1}
+\begin{array}{l}
+&amp; X_t=\theta_0-\theta_1\epsilon_{t-1}-\epsilon_t = \mu-\theta_1\epsilon_{t-1}-\epsilon_t \\
+\implies &amp;X_t=\mu-(1+\theta_1 B)\epsilon_{t}
+\end{array}
+\]</span>
+donde <span class="math inline">\(\epsilon_t\)</span> es un proceso de ruido blanco y <span class="math inline">\(\theta\)</span> es el parámetro. Además, véase que</p>
+<p><span class="math display">\[
+\mathbb{E}(X_t) = \mu-\theta_1\mathbb{E}(\epsilon_{t-1})-\mathbb{E}(\epsilon_{t}) = \mu
 \]</span></p>
-<p>Expresando el polinomio en términos del operador de retardos queda:
-<span class="math display">\[X_t=(1-\theta B)\epsilon_{t}\]</span>
-<span class="math display">\[X_t=\theta_1(B)\epsilon_{t}\]</span>
-donde <span class="math inline">\(\epsilon_t\)</span> es un proceso de ruido blanco y <span class="math inline">\(\theta\)</span> es el parámetro.</p>
-Asumiendo estacionariedad débil, se tiene que la media y la varianza del proceso serán:
+<p>Por lo que este proceso ya es estacionario en su media. Sólo resta estudiar el caso para la covarianza. Asumiendo estacionariedad débil, se tiene lo siguiente</p>
+<p><span class="math display">\[
+\begin{split}
+\gamma_0 &amp;= \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))^2\right]=\mathbb{E}\left[(\mu-\theta_1\epsilon_{t-1}-\epsilon_t-\mu)^2\right]\\
+&amp; = \mathbb{E}\left[\theta_1^2\epsilon_{t-1}^2+2\theta_1\epsilon_{t-1}\epsilon_{t}+\epsilon_t^2\right]\\
+&amp; = \theta_1^2\sigma^2+\sigma^2\\
+&amp; =(1+\theta_1^2)\sigma^2\\
+\\
+\gamma_1 &amp;= \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))(X_{t-1}-\mathbb{E}(X_{t-1}))\right]\\
+&amp; =\mathbb{E}\left[(-\epsilon_t-\theta_1\epsilon_{t-1})(-\epsilon_{t-1}-\theta_1\epsilon_{t-2})\right]\\
+&amp; = \mathbb{E}\left[\epsilon_t\epsilon_{t-1}+\theta_1\epsilon_t\epsilon_{t-2}+\theta_1\epsilon_{t-1}^2+\theta_1^2\epsilon_{t-1}\epsilon_{t-2}\right]\\
+&amp; =\theta_1\mathbb{E}\left[\epsilon_{t-1}^2\right]\\
+&amp;= \theta_1\sigma^2\\
+\\
+\gamma_2 &amp;= \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))(X_{t-2}-\mathbb{E}(X_{t-2}))\right] = 0\\
+\vdots
+\end{split}
+\]</span></p>
+<p>Entonces la <strong>función de autocovarianza</strong> de un modelo <span class="math inline">\(MA(1)\)</span> es:</p>
+<p><span class="math display">\[
+\gamma_k = \left\{
+\begin{array}{lr}
+(1+\theta^2)\sigma^2 &amp;   \mbox{ si } k=0\\
+\theta_1 \sigma^2 &amp; \mbox{ si } k=1\\
+0 &amp;    \mbox{ si } k&gt;1\\
+\end{array}
+\right.
+\]</span></p>
+<p>Y la correspondiente <strong>función de autocorrelación</strong> de un modelo <span class="math inline">\(MA(1)\)</span> es:</p>
+<p><span class="math display">\[
+\rho_k = \frac{\gamma_k}{\gamma_0} = \left\{
+\begin{array}{lr}
+1 &amp;  \mbox{ si } k=0\\
+\frac{\theta_1}{1+\theta_1^2} &amp;  \mbox{ si } k=1\\
+0 &amp; \mbox{ si } k&gt;1\\
+\end{array}
+\right.
+\]</span></p>
 </div>
 <div id="proceso-de-medias-móviles-de-orden-2-ma2" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Proceso de Medias Móviles de orden 2: <span class="math inline">\(MA(2)\)</span></h2>
-<p>Este modelo determina por:
-<span class="math display">\[X_t=\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}\]</span>
-Expresando el polinomio en términos del operador de retardos queda:
-<span class="math display">\[X_t=(1-\theta_1 B-\theta_2B^2)\epsilon_{t}\]</span>
-<span class="math display">\[X_t=\theta(B)\epsilon_{t}\]</span>
-donde <span class="math inline">\(\epsilon_t\)</span> es un proceso de ruido blanco y <span class="math inline">\(\theta_1,\theta_2\)</span> son los parámetros del modelo.</p>
-Asumiendo estacionariedad débil, se tiene que la media y la varianza del proceso serán:
+<p>Este modelo determina por:</p>
+<p><span class="math display">\[
+\begin{split}
+MA(2): X_t &amp; = \theta_0-\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}\\
+X_t &amp; = \theta_0-(1+\theta_1 B+\theta_2B^2)\epsilon_{t}
+\end{split}
+\]</span></p>
+<p>donde <span class="math inline">\(\epsilon_t\)</span> es un proceso de ruido blanco y <span class="math inline">\(\theta_1,\theta_2\)</span> son los parámetros del modelo. Asumiendo estacionariedad débil, es fácil comprobar que <span class="math inline">\(\mathbb{E}(X_t) = \theta_0\)</span>. Respecto a la covarianza se tiene lo siguiente</p>
+<p><span class="math display">\[
+\begin{split}
+\gamma_0 &amp; = \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))^2\right]=\mathbb{E}\left[(-\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2})^2\right]\\
+&amp; = \mathbb{E}\left[\epsilon_t^2\right]+\theta_1^2\mathbb{E}\left[\epsilon_{t-1}\right]^2+\theta_2^2\mathbb{E}\left[\epsilon_{t-2}\right]^2\\
+&amp; = \left(1+\theta_1^2+\theta_2^2\right)\sigma^2\\
+\\
+\gamma_1 &amp; = \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))(X_{t-1}-\mathbb{E}(X_{t-1}))\right]\\
+&amp; = \mathbb{E}\left[(-\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2})(-\epsilon_{t-1}-\theta_1\epsilon_{t-2}-\theta_2\epsilon_{t-3})\right]\\
+&amp; = \mathbb{E}\left[\theta_1\epsilon_{t-1}^2+\theta_1\theta_2\epsilon_{t-2}^2\right]\\
+&amp; = \theta_1\left(1+\theta_2\right)\sigma^2\\
+\\
+\gamma_2 &amp; = \mathbb{E}\left[(X_{t}-\mathbb{E}(X_{t}))(X_{t-2}-\mathbb{E}(X_{t-2}))\right]\\
+&amp; = \mathbb{E}\left[(-\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2})(-\epsilon_{t-2}-\theta_1\epsilon_{t-3}-\theta_2\epsilon_{t-4})\right]\\
+&amp; = \theta_2\mathbb{E}\left[\epsilon_{t-2}^2\right]\\
+&amp; = \theta_2\sigma^2
+\end{split}
+\]</span></p>
+<p>Entonces la <strong>función de autocovarianza</strong> de un modelo <span class="math inline">\(MA(2)\)</span> es:</p>
+<p><span class="math display">\[
+\gamma_k = \left\{
+\begin{array}{lr}
+\left(1+\theta_1^2+\theta_2^2\right)\sigma^2 &amp; \mbox{ si } k=0\\
+\theta_1(1+\theta_2) \sigma^2 &amp; \mbox{ si }\ k=1\\
+\theta_2 \sigma^2 &amp; \mbox{ si } k=2\\
+0 &amp; \mbox{ si } k&gt;2\\
+\end{array}
+\right.
+\]</span></p>
+<p>Y la correspondiente <strong>función de autocorrelación</strong> de un modelo <span class="math inline">\(MA(2)\)</span> es:</p>
+<p><span class="math display">\[
+\rho_k = \left\{
+\begin{array}{lr}
+1 &amp;  \mbox{ si } k=0\\
+\frac{\theta_1+(1+\theta_2)}{1+\theta_1^2+\theta_2^2}&amp;  \mbox{ si } k=1\\
+\frac{\theta_2}{1+\theta_1^2+\theta_2^2}&amp;  \mbox{ si } k=2\\
+0 &amp;  \mbox{ si }  k&gt;2\\
+\end{array}
+\right.
+\]</span></p>
 
 </div>
 </div>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 6 Proceso Autoregresivo de Medias Móviles \(ARMA(p,q)\) | Análsis de Series de Tiempo</title>
+  <title>Capítulo 6 Proceso Autoregresivo de Medias Móviles \(ARMA(p,q)\) | Análisis de Series de Tiempo</title>
   <meta name="description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 6 Proceso Autoregresivo de Medias Móviles \(ARMA(p,q)\) | Análsis de Series de Tiempo" />
+  <meta property="og:title" content="Capítulo 6 Proceso Autoregresivo de Medias Móviles \(ARMA(p,q)\) | Análisis de Series de Tiempo" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 6 Proceso Autoregresivo de Medias Móviles \(ARMA(p,q)\) | Análsis de Series de Tiempo" />
+  <meta name="twitter:title" content="Capítulo 6 Proceso Autoregresivo de Medias Móviles \(ARMA(p,q)\) | Análisis de Series de Tiempo" />
   
   <meta name="twitter:description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -70,7 +70,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Análisis de Supervivencia</a></li>
+<li><a href="./">Análisis de Series de Tiempo</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
@@ -120,7 +120,7 @@
 </ul></li>
 <li class="chapter" data-level="6" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html"><i class="fa fa-check"></i><b>6</b> Proceso Autoregresivo de Medias Móviles <span class="math inline">\(ARMA(p,q)\)</span></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#proceso-autoregresivo-de-medias-móviles-arma11"><i class="fa fa-check"></i><b>6.1</b> Proceso Autoregresivo de Medias Móviles <span class="math inline">\(ARMA(1,1)\)</span></a>
+<li class="chapter" data-level="6.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#arma11"><i class="fa fa-check"></i><b>6.1</b> <span class="math inline">\(ARMA(1,1)\)</span></a>
 <ul>
 <li class="chapter" data-level="6.1.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#media"><i class="fa fa-check"></i><b>6.1.1</b> Media</a></li>
 <li class="chapter" data-level="6.1.2" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#covarianzas"><i class="fa fa-check"></i><b>6.1.2</b> Covarianzas</a></li>
@@ -142,7 +142,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análsis de Series de Tiempo</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análisis de Series de Tiempo</a>
           </h1>
         </div>
 
@@ -152,52 +152,81 @@
             <section class="normal" id="section-">
 <div id="proceso-autoregresivo-de-medias-móviles-armapq" class="section level1" number="6">
 <h1><span class="header-section-number">Capítulo 6</span> Proceso Autoregresivo de Medias Móviles <span class="math inline">\(ARMA(p,q)\)</span></h1>
-<p>Es muy probable que una serie de tiempo <span class="math inline">\(X_t\)</span>, tenga características de un proceso <span class="math inline">\(AR\)</span> y de un proceso <span class="math inline">\(MA\)</span> al mismo tiempo, por lo que será un proceso <span class="math inline">\(ARMA\)</span>. Así, <span class="math inline">\(X_t\)</span> sigue un proceso <span class="math inline">\(ARMA(p,q)\)</span>, y en este proceso habrá <span class="math inline">\(p\)</span> términos autoregresivos y <span class="math inline">\(q\)</span> términos de media móvil. Se verá de la siguiente forma:</p>
+<p>Es muy probable que una serie de tiempo <span class="math inline">\(X_t\)</span>, tenga características de un proceso <span class="math inline">\(AR\)</span> y de un proceso <span class="math inline">\(MA\)</span> al mismo tiempo, por lo que será un proceso <span class="math inline">\(ARMA\)</span>. Así, <span class="math inline">\(X_t\)</span> sigue un proceso <span class="math inline">\(ARMA(p,q)\)</span>, y en este proceso habrá <span class="math inline">\(p\)</span> términos autoregresivos y <span class="math inline">\(q\)</span> términos de media móvil. Este se verá de la siguiente forma:</p>
 <p><span class="math display">\[
-X_t=\phi_1X_{t-1}+...+\phi_pX_{t-p}+\epsilon_t-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}-...-\theta_q\epsilon_{t-q}
+X_t=c+ \phi_1X_{t-1}+...+\phi_pX_{t-p}+-\theta_1\epsilon_{t-1}-\theta_2\epsilon_{t-2}-...-\theta_q\epsilon_{t-q}+\epsilon_t
 \]</span></p>
 <p>donde <span class="math inline">\(\epsilon_t\)</span> es un proceso de ruido blanco, y <span class="math inline">\(\phi_1,...,\phi_p,\theta_1,...,\theta_q\)</span> son los parámetros del modelo.</p>
 <p>Para un proceso <span class="math inline">\(ARMA(p,q)\)</span> una condición de estacionariedad es la misma que para un proceso <span class="math inline">\(AR(p)\)</span>, y una condición de invertivilidad es la misma que para el proceso <span class="math inline">\(MA(q)\)</span>.</p>
-<p>El modelo <span class="math inline">\(ARMA(p,q)\)</span> se puede escribir en términos de los operadores de retardo de la siguiente manera:</p>
+<p>El modelo <span class="math inline">\(ARMA(p,q)\)</span> se puede escribir en términos de los operadores de retardo de la siguiente manera.</p>
+<p>Sea <span class="math inline">\(c = 0\)</span>.</p>
 <p><span class="math display">\[
 \begin{array}{c}
 (1-\phi_1B-\phi_2B^2-...-\phi_pB^p)X_t=(1-\theta_1B-\theta_2B^2-...-\theta_qB^q)\epsilon_t\\
-\phi_p(L)X_t=\theta_q(L)\epsilon_t
+\implies \phi_p(B)X_t=\theta_q(B)\epsilon_t
 \end{array}
 \]</span></p>
 <p>Donde
-+ <span class="math inline">\(\phi_p(L)\)</span> es el polinomio autoregresivo
-+ <span class="math inline">\(\theta_q(L)\)</span> es el polinomio de medias móviles.</p>
-<p>Los modelos <span class="math inline">\(ARMA(p,q)\)</span> siempre compartirán las características de los modelos <span class="math inline">\(AR(p)\)</span> y <span class="math inline">\(MA(q)\)</span>, ya que contiene ambas estructuras a la vez. El modelo <span class="math inline">\(ARMA(p,q)\)</span> tiene media cero y varianza constante y finita. La función de autocorrelación es infinita y decrece rápidamente hacia cero.</p>
-<div id="proceso-autoregresivo-de-medias-móviles-arma11" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Proceso Autoregresivo de Medias Móviles <span class="math inline">\(ARMA(1,1)\)</span></h2>
++ <span class="math inline">\(\phi_p(B)\)</span> es el polinomio autoregresivo
++ <span class="math inline">\(\theta_q(B)\)</span> es el polinomio de medias móviles.</p>
+<p>Hay que observar lo siguiente:</p>
+<p><span class="math display">\[
+\begin{array}{lr}
+X_t = \frac{\theta_q(B)}{\phi_p(B)}\epsilon_t &amp; \longleftarrow MA(\infty)\\
+\epsilon_t = \frac{\phi_1(B)}{\theta_q(B)}X_t &amp; \longleftarrow AR(\infty)
+\end{array}
+\]</span></p>
+<ul>
+<li>Los modelos <span class="math inline">\(ARMA(p,q)\)</span> siempre compartirán las características de los modelos <span class="math inline">\(AR(p)\)</span> y <span class="math inline">\(MA(q)\)</span>, ya que contiene ambas estructuras a la vez.</li>
+<li>El modelo <span class="math inline">\(ARMA(p,q)\)</span> tiene media cero y varianza constante y finita además de que la función de autocorrelación es infinita y decrece rápidamente hacia cero.<br />
+</li>
+<li>Un proceso <span class="math inline">\(ARMA(p,q)\)</span> es <strong>estacionario</strong> si y sólo si el modulo de las raíces del polinomio <span class="math inline">\(\phi_p(B)\)</span> está fuera del círculo unitario.</li>
+<li>Un proceso <span class="math inline">\(ARMA(p,q)\)</span> es <strong>invertible</strong> si y sólo si el modulo de las raíces del polinomio <span class="math inline">\(\theta_q(B)\)</span> está fuera del círculo unitario.</li>
+</ul>
+<p><strong>Ejemplo</strong></p>
+<p>Sea <span class="math inline">\(Y_t: ARMA(2,1)\)</span> con <span class="math inline">\(\epsilon_t\sim N(0,1)\)</span> tal que <span class="math inline">\(Y_t = 1.5Y_{t-1}-0.9Y_{t-2}-0.4\epsilon_{t-1}+\epsilon_t\)</span>.</p>
+<p>Sabemos que es invertible por que <span class="math inline">\(|\theta| = |-0,4|&lt;1\)</span> y es estacionario por lo siguiente:</p>
+<p><span class="math display">\[
+\begin{array}{ll}
+&amp;\phi_2(B) = (1-1.5B+0.9B^2)\\
+\implies &amp; B_1, B_2 = \frac{1.5\pm\sqrt{1.5^2-4(0.9)}}{2(0.9)} = 0.83\pm0.645
+\implies &amp; |B| = \sqrt{0.83^2+0.65^2} = 1.05423 &gt; 1
+\end{array}
+\]</span></p>
+<div id="arma11" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> <span class="math inline">\(ARMA(1,1)\)</span></h2>
 <p>En un modelo <span class="math inline">\(ARMA(1,1)\)</span> la serie de tiempo <span class="math inline">\(X_t\)</span> se determina en función de su pasado hasta el primer retardo, la innovación actual y el pasado de la innovación hasta el primer retardo.</p>
 <p><span class="math display">\[
-X_t=\phi_1X_{t-1}+\epsilon_t-\theta_1\epsilon_{t-1}
+X_t=c+ \phi_1X_{t-1}+\epsilon_t-\theta_1\epsilon_{t-1}
 \]</span></p>
-<p>donde <span class="math inline">\(\epsilon_t\)</span> es un proceso de ruido blanco, y <span class="math inline">\(\phi_1\)</span> y <span class="math inline">\(\theta_1\)</span> son los parámetros del modelo. Ahora se verán las caracteristicas de un proceso <span class="math inline">\(ARMA(1,1)\)</span> estacionario.</p>
+<p>donde <span class="math inline">\(\epsilon_t\)</span> es un proceso de ruido blanco, y <span class="math inline">\(\phi_1\)</span> y <span class="math inline">\(\theta_1\)</span> son los parámetros del modelo. Ahora se verán las características de un proceso <span class="math inline">\(ARMA(1,1)\)</span> estacionario.</p>
 <div id="media" class="section level3" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Media</h3>
 <p><span class="math display">\[
-E(X_t)=E(\phi_1X_{t-1}+\epsilon_t-\theta_1\epsilon_{t-1})=\phi_1E(X_{t-1})=0
+\begin{array}{l}
+\mathbb{E}(X_t)=\mathbb{E}(c+ \phi_1X_{t-1}+\epsilon_t-\theta_1\epsilon_{t-1})=c+ \phi_1\mathbb{E}(X_{t-1})\\
+\mbox{Suponiendo estacionariedad: }\mathbb{E}(X_t) = \frac{c}{1-\theta_1}
+\end{array}
 \]</span></p>
 </div>
 <div id="covarianzas" class="section level3" number="6.1.2">
 <h3><span class="header-section-number">6.1.2</span> Covarianzas</h3>
 <p><span class="math display">\[
 \begin{split}
-\gamma_0 &amp;=E(X_t-E(X_t))^2=E(X_t)^2=E(\phi_1X_{t-1}+\epsilon_t-\theta_1\epsilon_{t-1})^2\\
-&amp; =\frac{(1+\theta_1^2-2\phi_1\theta_1)\sigma^2}{1-\phi_1^2}\\
+\gamma_0 &amp;=E\left[(X_t-E(X_t))^2\right]=\phi_1^2Var(X_{t-1})+\theta_1^2\sigma^2+\sigma^2+\phi_1\theta_1Cov(X_{t-1}, \epsilon_{t-1})\\
+\Longleftrightarrow &amp; (1-\phi_1^2)Var(X_t) = \sigma^2(1+\theta_1^2)+\phi_1\theta_1\sigma^2\\
+\implies &amp; Var(X_t) = \gamma_0 = \frac{\sigma^2(1+\theta_1^2+2\phi_1\theta_1)}{1-\phi_1^2}
 \end{split}
 \]</span></p>
+<p>To be fixed…</p>
 <p><span class="math display">\[
 \begin{split}
 \gamma_1 &amp; =E[(X_t-E(X_t))(X_{t-1}-E(X_{t-1}))]=E[X_tX_{t-1}]\\
 &amp;=E[(\phi_1X_{t-1}+\epsilon_t-\theta_1\epsilon_{t-1})X_{t-1}]\\
 &amp;=\phi_1\gamma_0-\theta_1\sigma^2
 \end{split}
-\]</span>
-<span class="math display">\[
+\]</span></p>
+<p><span class="math display">\[
 \begin{split}
 \gamma_2&amp;=E[(X_t-E(X_t))(X_{t-2}-E(X_{t-2}))]=E[X_tX_{t-2}]\\
 &amp;=\phi_1\gamma_1

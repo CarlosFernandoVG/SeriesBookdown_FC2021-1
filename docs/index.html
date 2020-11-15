@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Análsis de Series de Tiempo</title>
+  <title>Análisis de Series de Tiempo</title>
   <meta name="description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Análsis de Series de Tiempo" />
+  <meta property="og:title" content="Análisis de Series de Tiempo" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Análsis de Series de Tiempo" />
+  <meta name="twitter:title" content="Análisis de Series de Tiempo" />
   
   <meta name="twitter:description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -70,7 +70,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Análisis de Supervivencia</a></li>
+<li><a href="./">Análisis de Series de Tiempo</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
@@ -120,7 +120,7 @@
 </ul></li>
 <li class="chapter" data-level="6" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html"><i class="fa fa-check"></i><b>6</b> Proceso Autoregresivo de Medias Móviles <span class="math inline">\(ARMA(p,q)\)</span></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#proceso-autoregresivo-de-medias-móviles-arma11"><i class="fa fa-check"></i><b>6.1</b> Proceso Autoregresivo de Medias Móviles <span class="math inline">\(ARMA(1,1)\)</span></a>
+<li class="chapter" data-level="6.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#arma11"><i class="fa fa-check"></i><b>6.1</b> <span class="math inline">\(ARMA(1,1)\)</span></a>
 <ul>
 <li class="chapter" data-level="6.1.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#media"><i class="fa fa-check"></i><b>6.1.1</b> Media</a></li>
 <li class="chapter" data-level="6.1.2" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#covarianzas"><i class="fa fa-check"></i><b>6.1.2</b> Covarianzas</a></li>
@@ -142,7 +142,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análsis de Series de Tiempo</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análisis de Series de Tiempo</a>
           </h1>
         </div>
 
@@ -151,18 +151,18 @@
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Análsis de Series de Tiempo</h1>
+<h1 class="title">Análisis de Series de Tiempo</h1>
 <p class="author"><em>Sofía Villers Gómez</em></p>
 <p class="author"><em>Carlos Fernando Vásquez Guerra</em></p>
 <p class="author"><em>Luis Angel Ramirez Teodoro</em></p>
 </div>
 <div id="prefacio" class="section level1 unnumbered">
 <h1>Prefacio</h1>
-<p>Primera edición del bookdown <em>Análsis de Series de Tiempo</em> para su uso en la materia Análisis de Supervivencia y Series de tiempo y sus relacionadas impartidas por los autores, así como para aquellos estudiantes que deseen adquirir el conocimiento pertinente de tal tópico.</p>
+<p>Primera edición del bookdown <em>Análisis de Series de Tiempo</em> para su uso en la materia Análisis de Supervivencia y Series de tiempo y sus relacionadas impartidas por los autores, así como para aquellos estudiantes que deseen adquirir el conocimiento pertinente de tal tópico.</p>
 <div id="objetivos" class="section level3 unnumbered">
 <h3>Objetivos</h3>
 <ul>
-<li><p>Otorgar un material electrónico de calidad con el contenido referente al Análsis de Series de Tiempo como un esfuerzo de los autores para lograr un proceso de aprendizaje autodidacta por parte del alumno y así optimizar el tiempo, tanto de los profesores, como el de los alumnos.</p></li>
+<li><p>Otorgar un material electrónico de calidad con el contenido referente al Análisis de Series de Tiempo como un esfuerzo de los autores para lograr un proceso de aprendizaje autodidacta por parte del alumno y así optimizar el tiempo, tanto de los profesores, como el de los alumnos.</p></li>
 <li><p>Plasmar las bases teóricas de esta rama de la estadística con el uso de ejemplos y contenido visual para un mejor entendimiento de cada subtema que se trate.</p></li>
 <li><p>Dar continuidad al material para el curso <em>Análisis de Supervivencia y Series de Tiempo</em>.</p></li>
 </ul>
@@ -182,7 +182,7 @@
 </style>
 <pre class="scroll-300"><code>R version 3.6.2 (2019-12-12)
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS Catalina 10.15.6
+Running under: macOS  10.16
 
 Matrix products: default
 BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
@@ -201,36 +201,36 @@ other attached packages:
 [13] ggplot2_3.3.2    tidyverse_1.3.0 
 
 loaded via a namespace (and not attached):
- [1] tseries_0.10-47   httr_1.4.2        jsonlite_1.7.1    viridisLite_0.3.0
- [5] modelr_0.1.6      assertthat_0.2.1  TTR_0.23-6        cellranger_1.1.0 
- [9] yaml_2.2.1        pillar_1.4.6      backports_1.2.0   lattice_0.20-40  
-[13] glue_1.4.2        quadprog_1.5-8    digest_0.6.27     rvest_0.3.5      
-[17] colorspace_1.4-1  htmltools_0.4.0   timeDate_3043.102 pkgconfig_2.0.3  
-[21] broom_0.7.0       haven_2.2.0       bookdown_0.20     scales_1.1.1     
-[25] webshot_0.5.2     generics_0.0.2    ellipsis_0.3.1    withr_2.3.0      
-[29] urca_1.3-0        nnet_7.3-13       cli_2.1.0         quantmod_0.4-15  
-[33] magrittr_1.5      crayon_1.3.4      readxl_1.3.1      evaluate_0.14    
-[37] fs_1.5.0          fansi_0.4.1       nlme_3.1-144      xts_0.12-0       
-[41] xml2_1.2.2        tools_3.6.2       hms_0.5.3         lifecycle_0.2.0  
-[45] munsell_0.5.0     reprex_0.3.0      compiler_3.6.2    rlang_0.4.8      
-[49] grid_3.6.2        rstudioapi_0.12   rmarkdown_2.3     gtable_0.3.0     
-[53] fracdiff_1.5-1    DBI_1.1.0         curl_4.3          R6_2.5.0         
-[57] zoo_1.8-7         lubridate_1.7.9   stringi_1.4.6     parallel_3.6.2   
-[61] Rcpp_1.0.5        vctrs_0.3.4       dbplyr_1.4.2      tidyselect_1.1.0 
-[65] xfun_0.12         lmtest_0.9-37    </code></pre>
+ [1] Rcpp_1.0.5        lubridate_1.7.9   lattice_0.20-40   zoo_1.8-7        
+ [5] assertthat_0.2.1  digest_0.6.27     lmtest_0.9-37     R6_2.5.0         
+ [9] cellranger_1.1.0  backports_1.2.0   reprex_0.3.0      evaluate_0.14    
+[13] httr_1.4.2        pillar_1.4.6      rlang_0.4.8       curl_4.3         
+[17] readxl_1.3.1      rstudioapi_0.12   fracdiff_1.5-1    TTR_0.23-6       
+[21] rmarkdown_2.3     webshot_0.5.2     munsell_0.5.0     broom_0.7.0      
+[25] compiler_3.6.2    modelr_0.1.6      xfun_0.12         pkgconfig_2.0.3  
+[29] urca_1.3-0        htmltools_0.4.0   nnet_7.3-13       tidyselect_1.1.0 
+[33] gridExtra_2.3     bookdown_0.20     quadprog_1.5-8    viridisLite_0.3.0
+[37] fansi_0.4.1       withr_2.3.0       crayon_1.3.4      dbplyr_1.4.2     
+[41] grid_3.6.2        nlme_3.1-144      jsonlite_1.7.1    gtable_0.3.0     
+[45] lifecycle_0.2.0   DBI_1.1.0         magrittr_1.5      scales_1.1.1     
+[49] quantmod_0.4-15   cli_2.1.0         stringi_1.4.6     fs_1.5.0         
+[53] tseries_0.10-47   timeDate_3043.102 ggfortify_0.4.8   xml2_1.2.2       
+[57] ellipsis_0.3.1    xts_0.12-0        generics_0.0.2    vctrs_0.3.4      
+[61] tools_3.6.2       glue_1.4.2        hms_0.5.3         parallel_3.6.2   
+[65] yaml_2.2.1        colorspace_1.4-1  rvest_0.3.5       haven_2.2.0      </code></pre>
 <p>Este libro fue escrito con <a href="http://bookdown.org/">bookdown</a> usando <a href="http://www.rstudio.com/ide/">RStudio</a>.</p>
 <p>Esta versión fue escrita con:</p>
 <pre><code>Finding R package dependencies ... Done!</code></pre>
 <pre><code> setting  value                       
  version  R version 3.6.2 (2019-12-12)
- os       macOS Catalina 10.15.6      
+ os       macOS  10.16                
  system   x86_64, darwin15.6.0        
  ui       X11                         
  language (EN)                        
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       America/Mexico_City         
- date     2020-11-14                  </code></pre>
+ date     2020-11-15                  </code></pre>
 </div>
 <div id="licencia" class="section level3 unnumbered">
 <h3>Licencia</h3>

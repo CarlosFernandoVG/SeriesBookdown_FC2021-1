@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 4 Proceso Autoregresivo \(AR(p)\) | Análsis de Series de Tiempo</title>
+  <title>Capítulo 4 Proceso Autoregresivo \(AR(p)\) | Análisis de Series de Tiempo</title>
   <meta name="description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 4 Proceso Autoregresivo \(AR(p)\) | Análsis de Series de Tiempo" />
+  <meta property="og:title" content="Capítulo 4 Proceso Autoregresivo \(AR(p)\) | Análisis de Series de Tiempo" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 4 Proceso Autoregresivo \(AR(p)\) | Análsis de Series de Tiempo" />
+  <meta name="twitter:title" content="Capítulo 4 Proceso Autoregresivo \(AR(p)\) | Análisis de Series de Tiempo" />
   
   <meta name="twitter:description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -70,7 +70,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Análisis de Supervivencia</a></li>
+<li><a href="./">Análisis de Series de Tiempo</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
@@ -120,7 +120,7 @@
 </ul></li>
 <li class="chapter" data-level="6" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html"><i class="fa fa-check"></i><b>6</b> Proceso Autoregresivo de Medias Móviles <span class="math inline">\(ARMA(p,q)\)</span></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#proceso-autoregresivo-de-medias-móviles-arma11"><i class="fa fa-check"></i><b>6.1</b> Proceso Autoregresivo de Medias Móviles <span class="math inline">\(ARMA(1,1)\)</span></a>
+<li class="chapter" data-level="6.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#arma11"><i class="fa fa-check"></i><b>6.1</b> <span class="math inline">\(ARMA(1,1)\)</span></a>
 <ul>
 <li class="chapter" data-level="6.1.1" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#media"><i class="fa fa-check"></i><b>6.1.1</b> Media</a></li>
 <li class="chapter" data-level="6.1.2" data-path="proceso-autoregresivo-de-medias-móviles-armapq.html"><a href="proceso-autoregresivo-de-medias-móviles-armapq.html#covarianzas"><i class="fa fa-check"></i><b>6.1.2</b> Covarianzas</a></li>
@@ -142,7 +142,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análsis de Series de Tiempo</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análisis de Series de Tiempo</a>
           </h1>
         </div>
 
@@ -210,10 +210,10 @@ por lo tanto <span class="math inline">\(E(X_t)=\frac {\phi_0}{1-\phi_1}\)</span
 \]</span></p>
 <p>Véase que para que sea estacionario, con varianza constante y finita es necesario que <span class="math inline">\(| \phi_1|&lt; 1\)</span>. En resumen</p>
 <p><span class="math display">\[Var(X_t)= \gamma_0 = \frac{\sigma^2}{1-\phi^2}\]</span></p>
-<p>Respecto a la covarianza, <span class="math inline">\(Cov(X_t,X_{t-k})\)</span> para <span class="math inline">\(K=1,...\)</span></p>
+<p>Respecto a la covarianza <span class="math inline">\(Cov(X_t,X_{t-k})\)</span> para <span class="math inline">\(K=1,...\)</span>, se tiene lo siguiente</p>
 <p><span class="math display">\[
 \begin{split}
-Cov(X_t,X_{t-k})&amp;=\mathbb{E}\left[(X_t-\mathbb{E}(X_t))(X_{t-k}-\mathbb{E}(X_{t-k}))\right]\\
+Cov(X_t,X_{t-k})&amp;=\gamma_k = \mathbb{E}\left[(X_t-\mathbb{E}(X_t))(X_{t-k}-\mathbb{E}(X_{t-k}))\right]\\
 &amp; = \mathbb{E}\left[(\phi_1(X_{t-1}-\mathbb{E}(X_{t-1}))+\epsilon_t)(X_{t-k}-\mathbb{E}(X_{t-k}))\right]\\
 &amp; = \mathbb{E}\left[\phi_1(X_{t-1}-\mathbb{E}(X_{t-1}))(X_{t-k}-\mathbb{E}(X_{t-k}))\right] + \mathbb{E}\left[\epsilon_t(X_{t-k}-\mathbb{E}(X_{t-k}))\right]\\
 &amp; = \phi_1\mathbb{E}\left[(X_{t-1}-\mathbb{E}(X_{t-1}))(X_{t-k}-\mathbb{E}(X_{t-k}))\right] = \phi_1\gamma_{k-1}
@@ -229,7 +229,7 @@ Cov(X_t,X_{t-k})&amp;=\mathbb{E}\left[(X_t-\mathbb{E}(X_t))(X_{t-k}-\mathbb{E}(X
 \end{array}
 \end{array}
 \]</span></p>
-<p><span class="math inline">\(\therefore AR(1)\)</span> es estacionario en covarianza si <span class="math inline">\(|\phi_1|&lt;1\)</span> y la <strong>función de covarianza será</strong>:</p>
+<p><span class="math inline">\(\therefore AR(1)\)</span> es estacionario en covarianza si <span class="math inline">\(|\phi_1|&lt;1\)</span> y la <strong>función de covarianza</strong> será:</p>
 <p><span class="math display">\[
 \gamma_k=
 \left\{
@@ -296,24 +296,10 @@ X_t=\phi_0 + \phi_1 X_{t-1}+\phi_2 X_{t-2}+\epsilon_t
 <p>Donde <span class="math inline">\(\epsilon_t\)</span> es un ruido blanco (media cero y varianza <span class="math inline">\(\sigma^2\)</span>). Asumiendo estacionariedad débil, se tiene que la media y la varianza del proceso serán las siguientes.</p>
 <div id="estacionario-en-media-1" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Estacionario en Media</h3>
-<ol style="list-style-type: decimal">
-<li></li>
-</ol>
-<p><span class="math display">\[
-\begin{split}
-\mathbb{E}[X_t]&amp; =\mathbb{E}[\phi_1 X_{t-1}+\phi_2 X_{t-2}+\epsilon_t]\\
-\implies &amp;\mathbb{E}[(1-\phi_1B-\phi_2B^2) X_{t}]=\mathbb{E}[\epsilon_t]\\
-\implies &amp;(1-\phi_1B-\phi_2B^2) \mathbb{E}[X_{t}]=0\\
-\implies &amp; \mathbb{E}[X_{t}]=\frac{0}{1-\phi_1B-\phi_2B^2}
-\end{split}
-\]</span></p>
-<ol start="2" style="list-style-type: decimal">
-<li></li>
-</ol>
 <p>Bajo el supuesto de estacionalidad:</p>
 <p><span class="math display">\[
 \begin{split}
-\mathbb{E}(X_t) &amp;= \mathbb{E}(X_{t-1}) = \mathbb{E}(X_{t-2})\\
+&amp; \mathbb{E}(X_t) = \mathbb{E}(X_{t-1}) = \mathbb{E}(X_{t-2})\\
 \implies &amp;(1-\phi_1-\phi_2)\mathbb{E}(X_t) = \phi_0\\
 \implies &amp;\mathbb{E}(X_t) = \frac{\phi_0}{1-\phi_1-\phi_2}
 \end{split}
@@ -322,44 +308,13 @@ X_t=\phi_0 + \phi_1 X_{t-1}+\phi_2 X_{t-2}+\epsilon_t
 </div>
 <div id="estacionario-en-covarianza-1" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Estacionario en Covarianza</h3>
-<ol style="list-style-type: decimal">
-<li></li>
-</ol>
-<p><span class="math display">\[
-\begin{split}
-\gamma_0 &amp;= E\left[(X_{t}-E(X_{t})^2\right]=E[X_{t}]^2\\
-&amp; =E[\phi_1 X_{t-1}+\phi_2 X_{t-2}+\epsilon_t]^2
-\gamma_0 &amp;= \phi_1^2\gamma_0 +\phi_2^2\gamma_0 +\sigma^2+2\phi_1^2\phi_2^2\gamma_1\\
-\implies &amp; (1-\phi_1^2-\phi_2^2)\gamma_0 = \sigma^2+2\phi_1^2\phi_2^2\gamma_1\\
-\gamma_0 &amp;= \frac{\sigma^2+2\phi_1^2\phi_2^2\gamma_1}{1-\phi_1^2-\phi_2^2}\\
-\end{split}
-\]</span></p>
-<p><span class="math display">\[
-\begin{split}
-\gamma_1 &amp;= E(X_{t}-E[X_{t}])(X_{t-1}-E[X_{t-1}])=E[X_{t}X_{t-1}]\\
-&amp;= E[(\phi_1 X_{t-1}+\phi_2 X_{t-2}+\epsilon_t)X_{t-1}]\\
-&amp;= \phi_1 E[X_{t-1}]^2+\phi_2 E[X_{t-2}X_{t-1}]+E[\epsilon_tX_{t-1}]\\
-&amp;= \phi_1\gamma_0 +\phi_2 \gamma_1\\
-&amp;= \frac{\phi_1\gamma_0} {1-\phi_2}
-\end{split}
-\]</span></p>
-<p>En general la autocovarianza de orden <span class="math inline">\(k\)</span>, para <span class="math inline">\(k&gt;1\)</span> será:
-<span class="math display">\[
-\begin{split}
-\gamma_k &amp;= E(X_{t}-E[X_{t}])(X_{t-k}-E[X_{t-k}])=E[X_{t}X_{t-k}]\\
- &amp;= E[(\phi_1 X_{t-1}+\phi_2 X_{t-2}+\epsilon_t)X_{t-k}]\\
- &amp;= \phi_1\gamma_{k-1} +\phi_2 \gamma_{k-2}
-\end{split}
-\]</span></p>
-<ol start="2" style="list-style-type: decimal">
-<li></li>
-</ol>
 <p><span class="math display">\[
 \begin{split}
 \gamma_0 &amp;= \mathbb{E}\left[(X_t-\mathbb{E}(X_t))^2\right]\\
 &amp; = \mathbb{E}\left[(\phi_0+\phi_1 X_{t-1}+\phi_2 X_{t-2}+\epsilon_t-\phi_0 -\phi_1\mathbb{E}(X_{t-1})-\phi_2 \mathbb{E}(X_{t-2}))^2\right]\\
 &amp; = \mathbb{E}\left[(\phi_1(X_{t-1}-\mathbb{E}(X_{t-1}))+\phi_2(X_{t-2}-\mathbb{E}(X_{t-2}))+\epsilon_0)^2\right]\\
-&amp; = \mathbb{E}\left[\phi_1^2(X_{t-1}-\mathbb{E}(X_{t-1}))^2 + 2\phi_1\phi_2(X_{t-1}-\mathbb{E}(X_{t-1}))(X_{t-2}-\mathbb{E}(X_{t-2})) + \phi_2^2(X_{t-2}-\mathbb{E}(X_{t-2}))^2+\epsilon_0^2+\cdots\right]\\
+&amp; = \mathbb{E}[\phi_1^2(X_{t-1}-\mathbb{E}(X_{t-1}))^2 + 2\phi_1\phi_2(X_{t-1}-\mathbb{E}(X_{t-1}))(X_{t-2}-\mathbb{E}(X_{t-2}))\\ 
+&amp; \ \ \ \ \ \ \ \ + \phi_2^2(X_{t-2}-\mathbb{E}(X_{t-2}))^2+\epsilon_0^2+\cdots]\\
 &amp; = \phi_1^2\gamma_0+2\phi_1\phi_2\gamma_1+\phi_2^2\gamma_0+\sigma^2
 \end{split}
 \]</span></p>
@@ -382,7 +337,7 @@ X_t=\phi_0 + \phi_1 X_{t-1}+\phi_2 X_{t-2}+\epsilon_t
 &amp; = \phi_1\gamma_{k-1}+\phi_2\gamma_{k-2} 
 \end{split}
 \]</span></p>
-<p>Entonces la función de autocovarianza de un modelo <span class="math inline">\(AR(2)\)</span> es la siguiente</p>
+<p>Entonces la <strong>función de autocovarianza</strong> de un modelo <span class="math inline">\(AR(2)\)</span> es la siguiente</p>
 <p><span class="math display">\[
 \gamma_k = \left\{
 \begin{array}{ccc}
@@ -392,8 +347,8 @@ X_t=\phi_0 + \phi_1 X_{t-1}+\phi_2 X_{t-2}+\epsilon_t
 \end{array}
 \right.
 \]</span>
-Y la correspondiente función de autocorrelación de un modelo <span class="math inline">\(AR(2)\)</span> es:
-<span class="math display">\[
+Y la correspondiente <strong>función de autocorrelación</strong> de un modelo <span class="math inline">\(AR(2)\)</span> es:</p>
+<p><span class="math display">\[
 \rho_k = \left\{
 \begin{array}{ccc}
 1 &amp; \mbox{   si }&amp; k=0\\
@@ -406,6 +361,22 @@ Y la correspondiente función de autocorrelación de un modelo <span class="math
 <p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Y al igual que para el ejemplo del modelo <span class="math inline">\(AR(1)\)</span>, se agregan las gráficas de autocorrelación simple y parcial.</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Algo interesante de tener los procesos en términos de operadores de retardos es que podemos obtener las condiciones de estacionariedad en <span class="math inline">\(AR\)</span> por las raíces del polinomio que se deriva de esta notación:</p>
+<p><span class="math display">\[
+\begin{split}
+AR(1):&amp; X_t = \phi_1 X_{t-1}+\epsilon_t\\
+\implies &amp; (1-\phi_1 B)X_t = \epsilon_t\\
+\implies &amp;B = \frac{1}{\phi_1}\implies |\phi_1|&lt;1
+\end{split}
+\]</span>
+<span class="math display">\[
+\begin{split}
+AR(2):&amp; X_t = \phi_1X_{t-1}+\phi_2X_{t-2}+\epsilon_t\\
+\implies &amp; (1-\phi_1B-\phi_2B^2)X_t = \epsilon_t
+\end{split}
+\]</span></p>
+<p>Por lo que las raíces del polinomio <span class="math inline">\((1-\phi_1B-\phi_2B^2)\)</span> serán <span class="math inline">\(B^1, B^2 = \frac{\theta_1\pm\sqrt{\theta_1^2+4\theta_2}}{-2\theta_2}\)</span>.</p>
+<p>Y gracias a todo esto, podemos interpretar que para que los procesos sean estacionarios, se solicita que las raíces estén fuera del círculo unitario, es decir: <span class="math inline">\(|B^1|&gt;1\)</span> y <span class="math inline">\(|B^2|&gt;1\)</span>.</p>
 
 </div>
 </div>
