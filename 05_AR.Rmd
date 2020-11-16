@@ -158,7 +158,7 @@ $$
 
 + Caso particular: $AR(1): X_t = \phi_1X_{t-1}+\epsilon_t$, es decir que $\phi_0 = 0$. Para este caso se tiene $\mathbb{E}(X_t) = \phi_1\mathbb{E}(X_{t-1})\implies(1-\phi_1)\mathbb{E}(X_t) = 0\implies\mathbb{E}(X_t) = \frac{0}{(1-\phi_1)} = 0$.
 
-A continuación se da muestran los resultados para un modelo $AR(1)$ de la siguiente forma $X_t=0.35X_{t-1}+\epsilon_t$
+A continuación se muestran los resultados para un modelo $AR(1)$ de la siguiente forma $X_t=0.35X_{t-1}+\epsilon_t$
 
 ```{r}
 x <- arima.sim(model = list(order = c(1, 0, 0), ar = .35), n = 100)

@@ -31,7 +31,7 @@ $$
 
 ## Prueba de Ljung-Box
 
-Esta prueba permite probar en forma conjunta que todos los coeficientes de autocorrelación son simultáneamente iguales a cer, esto es que son independientes. La prueba está definida como
+Esta prueba permite probar en forma conjunta que todos los coeficientes de autocorrelación son simultáneamente iguales a cero, esto es que son independientes. La prueba está definida como
 
 $$
 LB=n(n+2)\sum_{k=1}^m\frac{\hat\rho_k^2}{n-k}\sim \chi_{(m)}^2
