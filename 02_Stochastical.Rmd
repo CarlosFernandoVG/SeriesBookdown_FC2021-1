@@ -75,4 +75,4 @@ walkRandom <- tibble(time = 1:100, random = rnorm(100), walk = cumsum(random))
 La anterior gráfica esta basada en 100 simulaciones de una normal estándar bajo con una semilla en 123.
 
 ### Ejercicio
-Reproducir la caminata aleatoria y ver ¿qué sucede al aumentar el número de simulaciones (n=1000)? ¿Por qué sucede este nuevo comportamiento?
+Reproducir la caminata aleatoria y ver ¿qué sucede al aumentar el número de simulaciones $(n=1000)$? ¿Por qué sucede este nuevo comportamiento?
