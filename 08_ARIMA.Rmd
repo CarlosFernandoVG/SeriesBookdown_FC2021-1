@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # (PART) Procesos lineales no estacionarios {-}
 
 # $ARIMA(p,d,q)$: Proceso Autoregresivo Integrado y de Medias Móviles
@@ -37,3 +42,67 @@ X_t -X_{t-1} &= \mu_t+Z_t-\mu_{t-1}-Z_{t-1}\\
 $$
 
 El cual ya no depende de $t$.
+
+A continuación se muestran los resultados para un modelo $ARIMA(2,1,1)$ de la siguiente forma $X_t=0.85X_{t-1}-0.45X_{t-2}+.30\epsilon_{t-1}$
+
+```{r}
+x <- arima.sim(model = list(order = c(2, 1, 1), ar = c(.85,-.45),ma =.3), n = 100)
+x %>% autoplot(colour = "darkorchid4") + 
+  ggtitle(TeX("Ejemplo de modelo $ARIMA(2,1,1)$")) +
+  labs(x = "Tiempo", y = TeX("$X_t$")) +
+  general_theme
+# ts.plot(x,main="Ejemplo de modelo AR(1)",ylab="Xt")
+```
+
+Además de las gráficas de Autocorrelación simple y parcial.
+
+```{r}
+# acf(x,main= "Autocorrelación Simple")
+# ggAcf(x)
+
+# pacf(x, main="Autocorrelación Parcial")
+# ggPacf(x)
+
+(autoplot(acf(x,plot = FALSE), colour = "darkorchid4") + 
+  geom_hline(yintercept = 0) +
+  ggtitle("Autocorrelación Simple") +
+  general_theme) + 
+(autoplot(pacf(x,plot = FALSE), colour = "darkorchid4") + 
+  geom_hline(yintercept = 0) +
+  ggtitle("Autocorrelación Parcial") +
+  labs(y = "Partial ACF") + 
+  general_theme)
+```
+
+A continuación se muestran los resultados para un modelo $ARIMA(2,2,1)$ de la siguiente forma $X_t=0.85X_{t-1}-0.45X_{t-2}+.30\epsilon_{t-1}$
+
+```{r}
+x <- arima.sim(model = list(order = c(2, 2, 1), ar = c(.85,-.45),ma =.3), n = 100)
+x %>% autoplot(colour = "darkorchid4") + 
+  ggtitle(TeX("Ejemplo de modelo $ARIMA(2,2,1)$")) +
+  labs(x = "Tiempo", y = TeX("$X_t$")) +
+  general_theme
+# ts.plot(x,main="Ejemplo de modelo AR(1)",ylab="Xt")
+```
+
+Además de las gráficas de Autocorrelación simple y parcial.
+
+```{r}
+# acf(x,main= "Autocorrelación Simple")
+# ggAcf(x)
+
+# pacf(x, main="Autocorrelación Parcial")
+# ggPacf(x)
+
+(autoplot(acf(x,plot = FALSE), colour = "darkorchid4") + 
+  geom_hline(yintercept = 0) +
+  ggtitle("Autocorrelación Simple") +
+  general_theme) + 
+(autoplot(pacf(x,plot = FALSE), colour = "darkorchid4") + 
+  geom_hline(yintercept = 0) +
+  ggtitle("Autocorrelación Parcial") +
+  labs(y = "Partial ACF") + 
+  general_theme)
+```
+
+¿Qué se puede decir del efecto que tiene el parámetro $d$ al comparar las gráficas de ambas series?  
