@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Motivación | Análisis de Series de Tiempo</title>
+  <title>Capítulo 11 \(ARCH(q)\): Proceso Autoregresivo con Heterocedasticidad Condicional | Análisis de Series de Tiempo</title>
   <meta name="description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Motivación | Análisis de Series de Tiempo" />
+  <meta property="og:title" content="Capítulo 11 \(ARCH(q)\): Proceso Autoregresivo con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/CarlosFernandoVG/SeriesBookdown_FC2021-1" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Motivación | Análisis de Series de Tiempo" />
+  <meta name="twitter:title" content="Capítulo 11 \(ARCH(q)\): Proceso Autoregresivo con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
   
   <meta name="twitter:description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="series-de-tiempo.html"/>
+<link rel="prev" href="construcción-de-modelos-para-series-de-tiempo-univariadas.html"/>
+<link rel="next" href="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -159,17 +159,67 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="motivación" class="section level1 unnumbered">
-<h1>Motivación</h1>
-<p>Sólo para recordar lo que se mencionaba en el primer material, nuestro objetivo en esta parte será responder preguntas como: <em>¿Cuál será el precio de las acciones de Facebook para el último bimestre del 2020?, ¿Cuál será el nivel de partículas contaminantes en la CDMX para noviembre de 2020?, ¿Cuál será la capacidad de un procesador intel para el año 2021?</em>, puede parecer, en primera instancia, una tarea complicada. Si bien no tenemos una “bola mágica” con la que podamos adivinar el futuro, disponemos de ciertos procesos estocásticos llamados <em>Series de Tiempo</em>, cuyo objetivo principal es el <em>pronóstico</em>.</p>
+<div id="archq-proceso-autoregresivo-con-heterocedasticidad-condicional" class="section level1" number="11">
+<h1><span class="header-section-number">Capítulo 11</span> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</h1>
+<p>El nombre proviene del inglés, “Autoregressive conditional heteroscedasticity” (ARCH). Métodp propuesto por Engels en 1982, que determina un patrón de comportamiento estadístico para la varianza. Considera que la información pasada de una variable y su volatilidad son factores que explican su comportamiento presente y, por tanto, podrá ser extrapolado a futuro.</p>
+<p>La expresión algebráica básica del proceso <span class="math inline">\(ARCH(r)\)</span> es:</p>
+<p><span class="math display">\[
+X_t=\sigma_{t}\epsilon_{t}
+\]</span>
+Donde <span class="math inline">\(\epsilon_{t}\)</span> (proceso de ruido blanco formado por variables aleatorias normales independientes de media cero y varianza uno) y <span class="math inline">\(\sigma_{t}\)</span> (factor denominado volatilidad) son procesos estacionarios independientes entre sí.
+La condición de independencia entre <span class="math inline">\(\epsilon_{t}\)</span> y <span class="math inline">\(\sigma_{t}\)</span>, garantiza que la serie <span class="math inline">\(X_t\)</span> tenga media marginal igual a cero:
+<span class="math display">\[
+E(X_{t})=E(\sigma_{t}\epsilon_{t})=E(\sigma_{t})E(\epsilon_{t})=0
+\]</span>
+La media condicional también es nula.
+<span class="math display">\[
+E(X_{t}|X_{t-1})=E(\sigma_{t}\epsilon_{t}|X_{t-1})=E(\sigma_{t}|X_{t-1})E(\epsilon_{t}|X_{t-1})=E(\sigma_{t}|X_{t-1})E(\epsilon_{t})=0
+\]</span>
+La varianza marginal de <span class="math inline">\(X_{t}\)</span> es constante (<span class="math inline">\(\sigma^2\)</span>) y se calcula como:
+<span class="math display">\[
+E(X_{t}^2)=E(\sigma_{t}^2\epsilon_{t}^2)=E(\sigma_{t}^2)E(\epsilon_{t}^2)=\sigma^2\times1=\sigma^2
+\]</span>
+Sin embargo, la varianza condicionada no es constante:
+<span class="math display">\[
+E(X_{t}^2|X_{t-1})=E(\sigma_{t}^2\epsilon_{t}^2|X_{t-1})=E(\sigma_{t}^2|X_{t-1})E(\epsilon_{t}^2|X_{t-1})=E(\sigma_{t}^2|X_{t-1})E(\epsilon_{t}^2)=\sigma_t^2\times1=\sigma_t^2
+\]</span>
+Por tanto, <span class="math inline">\(\sigma_t^2\)</span>, representa la varianza condicionada de la serie en cada instante , que va variando con cierta estructura estacionaria.</p>
+<p>La condición de independencia entre <span class="math inline">\(\sigma_t\)</span> y <span class="math inline">\(\epsilon_t\)</span>, además de garantizar que la serie <span class="math inline">\(X_t\)</span> tenga media marginal igual a cero, nos garantiza que la serie carezca de autocorrelación y forme un proceso de ruido blanco. Sin embargo, la serie <span class="math inline">\(X_t\)</span> no es de variables independientes.</p>
+<p>El casos más simple de este proceso es un modelo ARCH(1) (la varianza condicional depende de un retardo de la serie) y se define como:</p>
+<p>Un proceso estacionario <span class="math inline">\(X_t\)</span> sigue un modelo <span class="math inline">\(ARCH(1)\)</span> si y sólo si
+<span class="math display">\[
+X_t=\sigma_t\epsilon_t
+\]</span>
+donde <span class="math inline">\(\epsilon_t\)</span> es ruido blanco y</p>
+<p><span class="math display">\[
+\sigma^2_{t} = \alpha_0+\alpha_1 X^2_{t-1}
+\]</span>
+Observemos que la varianza condicional (<span class="math inline">\(\sigma^2_t\)</span>) tiene una estructura similar a un AR(1), y por tanto solo depende del último valor observado. Por tanto, si el valor de <span class="math inline">\(X^2_t\)</span> es alto, la varianza <span class="math inline">\(\sigma^2_t\)</span> de la siguiente observación condicionada a este valor será también alta. Esto producirá correlación entre los cuadrados de la serie, provocando rachas de valores de magnitud
+relativamente elevada o con mayor varianza. Pero como la media marginal y la condicionada vale cero, aunque la varianza condicionada sea alta, siempre es posible que aparezca un valor pequeño de <span class="math inline">\(X^2_t\)</span>, que disminuirá la varianza condicionada de la
+observación siguiente y facilitará que la siguiente observación sea pequeña en valor absoluto. De manera que la serie puede presentar rachas de valores altos, pero globalmente será estacionaria.</p>
+<p>El modelo anterior puede generalizarse permitiendo una dependencia de la varianza condicional con q retardos. De manera que el modelo será <span class="math inline">\(ARCH(q)\)</span>, el cual se define como:</p>
+<p>Un proceso estacionario <span class="math inline">\(X_t\)</span> sigue un modelo <span class="math inline">\(ARCH(q)\)</span> si y sólo si
+<span class="math display">\[
+X_t=\sigma_t\epsilon_t
+\]</span>
+donde <span class="math inline">\(\epsilon_t\)</span> es ruido blanco y</p>
+<p><span class="math display">\[
+\sigma^2_{t} = \alpha_0+\alpha_1 X^2_{t-1}+\alpha_2 X^2_{t-2}+...+\alpha_q X^2_{t-q}= \alpha_0+\sum_{i=1}^q \alpha_i X^2_{t-i}
+\]</span>
+Donde <span class="math inline">\(\alpha_0&gt;0\)</span> y <span class="math inline">\(\alpha_i\ge0, i=1,...,q\)</span>. Para garantizar que el proceso <span class="math inline">\(\sigma^2_t\)</span> sea estacionario se requiere que <span class="math inline">\(\sum_{i=1}^q\alpha_i&lt;1\)</span>.</p>
+<p>A continuación se muestran las simulaciones de un modelo <span class="math inline">\(ARCH(1)\)</span> con la varianza modelada de la siguiente forma: <span class="math inline">\(\sigma^2_{t}=0.05+ 0.8X_{t-1}\)</span></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>A continuación se muestran las simulaciones de un modelo <span class="math inline">\(ARCH(3)\)</span> con la varianza modelada de la siguiente forma: <span class="math inline">\(\sigma^2_{t}=0.05+ 0.6X_{t-1}+0.2X_{t-2}+0.1X_{t-3}\)</span>
+<img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="series-de-tiempo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="construcción-de-modelos-para-series-de-tiempo-univariadas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

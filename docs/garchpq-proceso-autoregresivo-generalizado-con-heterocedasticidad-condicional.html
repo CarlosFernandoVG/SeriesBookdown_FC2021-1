@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Motivación | Análisis de Series de Tiempo</title>
+  <title>Capítulo 12 \(GARCH(p,q)\): Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional | Análisis de Series de Tiempo</title>
   <meta name="description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Motivación | Análisis de Series de Tiempo" />
+  <meta property="og:title" content="Capítulo 12 \(GARCH(p,q)\): Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/CarlosFernandoVG/SeriesBookdown_FC2021-1" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Motivación | Análisis de Series de Tiempo" />
+  <meta name="twitter:title" content="Capítulo 12 \(GARCH(p,q)\): Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
   
   <meta name="twitter:description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="series-de-tiempo.html"/>
+<link rel="prev" href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"/>
+
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -159,17 +159,31 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="motivación" class="section level1 unnumbered">
-<h1>Motivación</h1>
-<p>Sólo para recordar lo que se mencionaba en el primer material, nuestro objetivo en esta parte será responder preguntas como: <em>¿Cuál será el precio de las acciones de Facebook para el último bimestre del 2020?, ¿Cuál será el nivel de partículas contaminantes en la CDMX para noviembre de 2020?, ¿Cuál será la capacidad de un procesador intel para el año 2021?</em>, puede parecer, en primera instancia, una tarea complicada. Si bien no tenemos una “bola mágica” con la que podamos adivinar el futuro, disponemos de ciertos procesos estocásticos llamados <em>Series de Tiempo</em>, cuyo objetivo principal es el <em>pronóstico</em>.</p>
+<div id="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional" class="section level1" number="12">
+<h1><span class="header-section-number">Capítulo 12</span> <span class="math inline">\(GARCH(p,q)\)</span>: Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional</h1>
+<p>En el modelo <span class="math inline">\(ARCH(1)\)</span> el predictor al tiempo <span class="math inline">\(t + 1\)</span> de la
+varianza depende solo del último valor de <span class="math inline">\(\sigma_t\)</span>. Sin embrago, en la práctica se desea tener mayor precisión en la predicción, para mejorarla se podría incluir todos los valores pasados <span class="math inline">\(\sigma_t\)</span> con menor peso para volatilidades más distantes.
+Una propuesta para este problema la desarrolló Bollerslev(1986), donde introduce <span class="math inline">\(p\)</span> retrasos de la varianza condicional al modelo, entonces <span class="math inline">\(p\)</span> hace referencia al orden del modelo GARCH.</p>
+<p>Entonces un proceso estacionario <span class="math inline">\(X_t\)</span> sigue un modelo <span class="math inline">\(GARCH(p,q)\)</span> si
+<span class="math display">\[
+X_t=\sigma_t\epsilon_t
+\]</span>
+donde <span class="math inline">\(\epsilon_t\)</span> es ruido blanco y
+<span class="math display">\[
+\sigma^2_{t} = \alpha_0+\sum_{i=1}^q \alpha_i X^2_{t-i}+\sum_{j=1}^p \beta_j\sigma^2_{t-j}
+\]</span>
+Donde <span class="math inline">\(\alpha_0&gt;0\)</span>,<span class="math inline">\(\alpha_i\ge0, i=1,...,q\)</span> y <span class="math inline">\(\beta_j\ge0, j=1,...,p\)</span>. Para garantizar que la varianza sea positiva y existan los momentos de orden superior se requiere que <span class="math inline">\(\sum_{i=1}^{max(p,q)}(\alpha_i+\beta_i)&lt;1\)</span>.</p>
+<p>A continuación se muestran las simulaciones de un modelo <span class="math inline">\(GARCH(1,1)\)</span> con la varianza modelada de la siguiente forma: <span class="math inline">\(\sigma^2_{t}=0.05+ 0.4X_{t-1}+0.55\sigma^2_{t-1}\)</span></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="series-de-tiempo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -136,6 +136,9 @@
 <li class="part"><span><b>IV Otras consideraciones</b></span></li>
 <li class="chapter" data-level="9" data-path="predictores-lineales.html"><a href="predictores-lineales.html"><i class="fa fa-check"></i><b>9</b> Predictores Lineales</a></li>
 <li class="chapter" data-level="10" data-path="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><a href="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
+<li class="part"><span><b>V Procesos no lineales</b></span></li>
+<li class="chapter" data-level="11" data-path="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><a href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>11</b> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</a></li>
+<li class="chapter" data-level="12" data-path="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"><a href="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>12</b> <span class="math inline">\(GARCH(p,q)\)</span>: Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Hecho con bookdown</a></li>
 
@@ -271,8 +274,8 @@ a1\rho_1+a_2 = \rho_2
 Y en general: <span class="math inline">\(\hat{X}_{n+h} = a_1X_n+a_2X_{n-1}+\cdots+a_nX_1\)</span>.</p>
 <p><strong>Ejercicios</strong></p>
 <ul>
-<li>Sean <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_4\)</span>, <span class="math inline">\(X_5\)</span> obs. de un modelo <span class="math inline">\(MA(2)\)</span> de la forma $X_t = Z_t+0.5Z_{t-1}+0.25Z_{t-2}. $Encontrar el mejor estimador para <span class="math inline">\(X_3\)</span> en términos de <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span>. <span class="math inline">\(Z_t\sim N(0,1)\)</span>.</li>
-<li>Sean <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_4\)</span>, <span class="math inline">\(X_5\)</span> obs. de un modelo <span class="math inline">\(MA(2)\)</span> de la forma $X_t = Z_t-0.25Z_{t-2}. $Encontrar el mejor estimador para <span class="math inline">\(X_3\)</span> en términos de <span class="math inline">\(X_2\)</span> y <span class="math inline">\(X_4\)</span>. <span class="math inline">\(Z_t\sim N(0,1)\)</span>.</li>
+<li>Sean <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_4\)</span>, <span class="math inline">\(X_5\)</span> obs. de un modelo <span class="math inline">\(MA(2)\)</span> de la forma <span class="math inline">\(X_t = Z_t+0.5Z_{t-1}+0.25Z_{t-2}\)</span>. $Encontrar el mejor estimador para <span class="math inline">\(X_3\)</span> en términos de <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span>. <span class="math inline">\(Z_t\sim N(0,1)\)</span>.</li>
+<li>Sean <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_4\)</span>, <span class="math inline">\(X_5\)</span> obs. de un modelo <span class="math inline">\(MA(2)\)</span> de la forma <span class="math inline">\(X_t = Z_t-0.25Z_{t-2}\)</span>. $Encontrar el mejor estimador para <span class="math inline">\(X_3\)</span> en términos de <span class="math inline">\(X_2\)</span> y <span class="math inline">\(X_4\)</span>. <span class="math inline">\(Z_t\sim N(0,1)\)</span>.</li>
 </ul>
 
 </div>
