@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 12 \(GARCH(p,q)\): Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional | Análisis de Series de Tiempo</title>
+  <title>Capítulo 13 \(GARCH(p,q)\): Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional | Análisis de Series de Tiempo</title>
   <meta name="description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 12 \(GARCH(p,q)\): Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
+  <meta property="og:title" content="Capítulo 13 \(GARCH(p,q)\): Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/CarlosFernandoVG/SeriesBookdown_FC2021-1" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 12 \(GARCH(p,q)\): Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
+  <meta name="twitter:title" content="Capítulo 13 \(GARCH(p,q)\): Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
   
   <meta name="twitter:description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -137,8 +137,9 @@
 <li class="chapter" data-level="9" data-path="predictores-lineales.html"><a href="predictores-lineales.html"><i class="fa fa-check"></i><b>9</b> Predictores Lineales</a></li>
 <li class="chapter" data-level="10" data-path="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><a href="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
 <li class="part"><span><b>V Procesos no lineales</b></span></li>
-<li class="chapter" data-level="11" data-path="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><a href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>11</b> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</a></li>
-<li class="chapter" data-level="12" data-path="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"><a href="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>12</b> <span class="math inline">\(GARCH(p,q)\)</span>: Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional</a></li>
+<li class="chapter" data-level="11" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>11</b> Introducción</a></li>
+<li class="chapter" data-level="12" data-path="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><a href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>12</b> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</a></li>
+<li class="chapter" data-level="13" data-path="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"><a href="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>13</b> <span class="math inline">\(GARCH(p,q)\)</span>: Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Hecho con bookdown</a></li>
 
@@ -159,8 +160,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional" class="section level1" number="12">
-<h1><span class="header-section-number">Capítulo 12</span> <span class="math inline">\(GARCH(p,q)\)</span>: Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional</h1>
+<div id="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional" class="section level1" number="13">
+<h1><span class="header-section-number">Capítulo 13</span> <span class="math inline">\(GARCH(p,q)\)</span>: Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional</h1>
 <p>En el modelo <span class="math inline">\(ARCH(1)\)</span> el predictor al tiempo <span class="math inline">\(t + 1\)</span> de la
 varianza depende solo del último valor de <span class="math inline">\(\sigma_t\)</span>. Sin embrago, en la práctica se desea tener mayor precisión en la predicción, para mejorarla se podría incluir todos los valores pasados <span class="math inline">\(\sigma_t\)</span> con menor peso para volatilidades más distantes.
 Una propuesta para este problema la desarrolló Bollerslev(1986), donde introduce <span class="math inline">\(p\)</span> retrasos de la varianza condicional al modelo, entonces <span class="math inline">\(p\)</span> hace referencia al orden del modelo GARCH.</p>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 11 \(ARCH(q)\): Proceso Autoregresivo con Heterocedasticidad Condicional | Análisis de Series de Tiempo</title>
+  <title>Capítulo 12 \(ARCH(q)\): Proceso Autoregresivo con Heterocedasticidad Condicional | Análisis de Series de Tiempo</title>
   <meta name="description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 11 \(ARCH(q)\): Proceso Autoregresivo con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
+  <meta property="og:title" content="Capítulo 12 \(ARCH(q)\): Proceso Autoregresivo con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/CarlosFernandoVG/SeriesBookdown_FC2021-1" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="CarlosFernandoVG/supervivencia_y_series_FC2021-1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 11 \(ARCH(q)\): Proceso Autoregresivo con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
+  <meta name="twitter:title" content="Capítulo 12 \(ARCH(q)\): Proceso Autoregresivo con Heterocedasticidad Condicional | Análisis de Series de Tiempo" />
   
   <meta name="twitter:description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -32,7 +32,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="construcción-de-modelos-para-series-de-tiempo-univariadas.html"/>
+<link rel="prev" href="introducción.html"/>
 <link rel="next" href="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -137,8 +137,9 @@
 <li class="chapter" data-level="9" data-path="predictores-lineales.html"><a href="predictores-lineales.html"><i class="fa fa-check"></i><b>9</b> Predictores Lineales</a></li>
 <li class="chapter" data-level="10" data-path="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><a href="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
 <li class="part"><span><b>V Procesos no lineales</b></span></li>
-<li class="chapter" data-level="11" data-path="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><a href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>11</b> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</a></li>
-<li class="chapter" data-level="12" data-path="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"><a href="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>12</b> <span class="math inline">\(GARCH(p,q)\)</span>: Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional</a></li>
+<li class="chapter" data-level="11" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>11</b> Introducción</a></li>
+<li class="chapter" data-level="12" data-path="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><a href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>12</b> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</a></li>
+<li class="chapter" data-level="13" data-path="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"><a href="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>13</b> <span class="math inline">\(GARCH(p,q)\)</span>: Proceso Autoregresivo Generalizado con Heterocedasticidad Condicional</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Hecho con bookdown</a></li>
 
@@ -159,8 +160,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="archq-proceso-autoregresivo-con-heterocedasticidad-condicional" class="section level1" number="11">
-<h1><span class="header-section-number">Capítulo 11</span> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</h1>
+<div id="archq-proceso-autoregresivo-con-heterocedasticidad-condicional" class="section level1" number="12">
+<h1><span class="header-section-number">Capítulo 12</span> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</h1>
 <p>El nombre proviene del inglés, “Autoregressive conditional heteroscedasticity” (ARCH). Métodp propuesto por Engels en 1982, que determina un patrón de comportamiento estadístico para la varianza. Considera que la información pasada de una variable y su volatilidad son factores que explican su comportamiento presente y, por tanto, podrá ser extrapolado a futuro.</p>
 <p>La expresión algebráica básica del proceso <span class="math inline">\(ARCH(r)\)</span> es:</p>
 <p><span class="math display">\[
@@ -218,7 +219,7 @@ Donde <span class="math inline">\(\alpha_0&gt;0\)</span> y <span class="math inl
           </div>
         </div>
       </div>
-<a href="construcción-de-modelos-para-series-de-tiempo-univariadas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introducción.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="garchpq-proceso-autoregresivo-generalizado-con-heterocedasticidad-condicional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

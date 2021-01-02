@@ -1,4 +1,7 @@
 # (PART) Procesos no lineales {-}
+
+# Introducción
+
 Los procesos vistos hasta ahora son lineales, pero muchas series temporales económicas, y especialmente series financieras, no cumplen con el supuesto de varianza constante, y no sólo eso, sino que estos cambios tienden a estar correlacionados serialmente, en el sentido de que cambios de gran magnitud en el valor de la serie son seguidos por grandes cambios (periodos de mucha volatilidad) mientras que a cambios pequeños en el valor de la serie les siguen cambios pequeños (periodos de poca volatilidad). 
 
 También puede ocurrir que por la propia naturaleza del fenómeno económico que se esta analizando se requiera conocer no solo aspectos de su nivel medio sino que también nos interese su varianza (o volatilidad). Usar un proceso ARIMA en una serie con estas caracteristicas se observará que los residuos recogerán todo el efecto de la variabilidad de la serie, ya que los modelos lineales no consideran la variabilidad dentro del modelo.
