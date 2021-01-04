@@ -19,7 +19,7 @@ Y la serie diferenciada de orden dos será:
 
 $$
 \begin{split}
-X_1=Y_2+Y_1=Z_3-Z_2-Z_2-Z_1=Z_3-Z_1\\
+X_1=Y_2+Y_1=Z_3-Z_2+Z_2-Z_1=Z_3-Z_1\\
 X_2=Y_3+Y_2=Z_4-Z_2\\
 X_3=Y_4+Y_3=Z_5-Z_3
 \end{split}

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Análisis de Series de Tiempo</title>
   <meta name="description" content="Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Análisis de Series de Tiempo" />
   <meta property="og:type" content="book" />
@@ -34,7 +34,7 @@
   
 
 <link rel="next" href="motivación.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,8 +52,11 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
 
 
 
@@ -205,29 +208,34 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] forecast_8.11    kableExtra_1.2.1 knitr_1.28       latex2exp_0.4.0 
+ [1] forecast_8.11    kableExtra_1.2.1 knitr_1.30       latex2exp_0.4.0 
  [5] patchwork_1.0.0  forcats_0.5.0    stringr_1.4.0    dplyr_1.0.1     
  [9] purrr_0.3.4      readr_1.3.1      tidyr_1.1.0      tibble_3.0.4    
 [13] ggplot2_3.3.2    tidyverse_1.3.0 
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5        lubridate_1.7.9   lattice_0.20-40   zoo_1.8-7        
- [5] assertthat_0.2.1  digest_0.6.27     lmtest_0.9-37     R6_2.5.0         
- [9] cellranger_1.1.0  backports_1.2.0   reprex_0.3.0      evaluate_0.14    
-[13] httr_1.4.2        pillar_1.4.6      rlang_0.4.8       curl_4.3         
-[17] readxl_1.3.1      rstudioapi_0.12   fracdiff_1.5-1    TTR_0.23-6       
-[21] rmarkdown_2.3     webshot_0.5.2     munsell_0.5.0     broom_0.7.0      
-[25] compiler_3.6.2    modelr_0.1.6      xfun_0.12         pkgconfig_2.0.3  
-[29] urca_1.3-0        htmltools_0.4.0   nnet_7.3-13       tidyselect_1.1.0 
-[33] gridExtra_2.3     bookdown_0.20     quadprog_1.5-8    viridisLite_0.3.0
-[37] fansi_0.4.1       withr_2.3.0       crayon_1.3.4      dbplyr_1.4.2     
-[41] grid_3.6.2        nlme_3.1-144      jsonlite_1.7.1    gtable_0.3.0     
-[45] lifecycle_0.2.0   DBI_1.1.0         magrittr_1.5      scales_1.1.1     
-[49] quantmod_0.4-15   cli_2.1.0         stringi_1.4.6     fs_1.5.0         
-[53] tseries_0.10-47   timeDate_3043.102 ggfortify_0.4.8   xml2_1.2.2       
-[57] ellipsis_0.3.1    xts_0.12-0        generics_0.0.2    vctrs_0.3.4      
-[61] tools_3.6.2       glue_1.4.2        hms_0.5.3         parallel_3.6.2   
-[65] yaml_2.2.1        colorspace_1.4-1  rvest_0.3.5       haven_2.2.0      </code></pre>
+ [1] tseries_0.10-47      httr_1.4.2           jsonlite_1.7.2      
+ [4] viridisLite_0.3.0    modelr_0.1.6         assertthat_0.2.1    
+ [7] TTR_0.23-6           cellranger_1.1.0     yaml_2.2.1          
+[10] pillar_1.4.6         backports_1.2.0      lattice_0.20-40     
+[13] glue_1.4.2           quadprog_1.5-8       digest_0.6.27       
+[16] rvest_0.3.5          colorspace_1.4-1     htmltools_0.5.0.9003
+[19] timeDate_3043.102    pkgconfig_2.0.3      broom_0.7.0         
+[22] haven_2.2.0          bookdown_0.21.6      scales_1.1.1        
+[25] webshot_0.5.2        generics_0.0.2       ellipsis_0.3.1      
+[28] withr_2.3.0          urca_1.3-0           nnet_7.3-13         
+[31] cli_2.1.0            quantmod_0.4-15      magrittr_2.0.1      
+[34] crayon_1.3.4         readxl_1.3.1         evaluate_0.14       
+[37] fs_1.5.0             fansi_0.4.1          nlme_3.1-144        
+[40] xts_0.12-0           xml2_1.2.2           tools_3.6.2         
+[43] hms_0.5.3            lifecycle_0.2.0      munsell_0.5.0       
+[46] reprex_0.3.0         compiler_3.6.2       rlang_0.4.10        
+[49] grid_3.6.2           rstudioapi_0.12      rmarkdown_2.6.4     
+[52] gtable_0.3.0         fracdiff_1.5-1       DBI_1.1.0           
+[55] curl_4.3             R6_2.5.0             zoo_1.8-7           
+[58] lubridate_1.7.9      stringi_1.5.3        parallel_3.6.2      
+[61] Rcpp_1.0.5           vctrs_0.3.4          dbplyr_1.4.2        
+[64] tidyselect_1.1.0     xfun_0.19            lmtest_0.9-37       </code></pre>
 <p>Este libro fue escrito con <a href="http://bookdown.org/">bookdown</a> usando <a href="http://www.rstudio.com/ide/">RStudio</a>.</p>
 <p>Esta versión fue escrita con:</p>
 <pre><code>Finding R package dependencies ... Done!</code></pre>
@@ -240,7 +248,7 @@ loaded via a namespace (and not attached):
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       America/Mexico_City         
- date     2021-01-01                  </code></pre>
+ date     2021-01-04                  </code></pre>
 </div>
 <div id="licencia" class="section level3 unnumbered">
 <h3>Licencia</h3>
