@@ -98,7 +98,8 @@
 <li class="chapter" data-level="2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html"><i class="fa fa-check"></i><b>2</b> Funciones de autocovarianza y autocorrelación</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#función-de-autocorrelación-parcial"><i class="fa fa-check"></i><b>2.1</b> Función de autocorrelación parcial</a></li>
-<li class="chapter" data-level="2.2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#prueba-de-ljung-box"><i class="fa fa-check"></i><b>2.2</b> Prueba de Ljung-Box</a></li>
+<li class="chapter" data-level="2.2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#correlograma"><i class="fa fa-check"></i><b>2.2</b> Correlograma</a></li>
+<li class="chapter" data-level="2.3" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#prueba-de-ljung-box"><i class="fa fa-check"></i><b>2.3</b> Prueba de Ljung-Box</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="transformaciones.html"><a href="transformaciones.html"><i class="fa fa-check"></i><b>3</b> Transformaciones</a>
 <ul>
@@ -138,7 +139,7 @@
 <li class="chapter" data-level="8" data-path="imadq-proceso-integrado-y-de-media-móvil.html"><a href="imadq-proceso-integrado-y-de-media-móvil.html"><i class="fa fa-check"></i><b>8</b> <span class="math inline">\(IMA(d,q)\)</span>: Proceso Integrado y de Media Móvil</a></li>
 <li class="part"><span><b>IV Otras consideraciones</b></span></li>
 <li class="chapter" data-level="9" data-path="predictores-lineales.html"><a href="predictores-lineales.html"><i class="fa fa-check"></i><b>9</b> Predictores Lineales</a></li>
-<li class="chapter" data-level="10" data-path="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><a href="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
+<li class="chapter" data-level="10" data-path="modelacion-univariada.html"><a href="modelacion-univariada.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
 <li class="part"><span><b>V Procesos no lineales</b></span></li>
 <li class="chapter" data-level="11" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>11</b> Introducción</a></li>
 <li class="chapter" data-level="12" data-path="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><a href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>12</b> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</a></li>
@@ -208,34 +209,37 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] forecast_8.11    kableExtra_1.2.1 knitr_1.30       latex2exp_0.4.0 
- [5] patchwork_1.0.0  forcats_0.5.0    stringr_1.4.0    dplyr_1.0.1     
- [9] purrr_0.3.4      readr_1.3.1      tidyr_1.1.0      tibble_3.0.4    
-[13] ggplot2_3.3.2    tidyverse_1.3.0 
+ [1] TSA_1.2          forecast_8.11    kableExtra_1.2.1 knitr_1.30      
+ [5] latex2exp_0.4.0  patchwork_1.0.0  forcats_0.5.0    stringr_1.4.0   
+ [9] dplyr_1.0.1      purrr_0.3.4      readr_1.3.1      tidyr_1.1.0     
+[13] tibble_3.0.4     ggplot2_3.3.2    tidyverse_1.3.0 
 
 loaded via a namespace (and not attached):
- [1] tseries_0.10-47      httr_1.4.2           jsonlite_1.7.2      
- [4] viridisLite_0.3.0    modelr_0.1.6         assertthat_0.2.1    
- [7] TTR_0.23-6           cellranger_1.1.0     yaml_2.2.1          
-[10] pillar_1.4.6         backports_1.2.0      lattice_0.20-40     
-[13] glue_1.4.2           quadprog_1.5-8       digest_0.6.27       
-[16] rvest_0.3.5          colorspace_1.4-1     htmltools_0.5.0.9003
-[19] timeDate_3043.102    pkgconfig_2.0.3      broom_0.7.0         
-[22] haven_2.2.0          bookdown_0.21.6      scales_1.1.1        
-[25] webshot_0.5.2        generics_0.0.2       ellipsis_0.3.1      
-[28] withr_2.3.0          urca_1.3-0           nnet_7.3-13         
-[31] cli_2.1.0            quantmod_0.4-15      magrittr_2.0.1      
-[34] crayon_1.3.4         readxl_1.3.1         evaluate_0.14       
-[37] fs_1.5.0             fansi_0.4.1          nlme_3.1-144        
-[40] xts_0.12-0           xml2_1.2.2           tools_3.6.2         
-[43] hms_0.5.3            lifecycle_0.2.0      munsell_0.5.0       
-[46] reprex_0.3.0         compiler_3.6.2       rlang_0.4.10        
-[49] grid_3.6.2           rstudioapi_0.12      rmarkdown_2.6.4     
-[52] gtable_0.3.0         fracdiff_1.5-1       DBI_1.1.0           
-[55] curl_4.3             R6_2.5.0             zoo_1.8-7           
-[58] lubridate_1.7.9      stringi_1.5.3        parallel_3.6.2      
-[61] Rcpp_1.0.5           vctrs_0.3.4          dbplyr_1.4.2        
-[64] tidyselect_1.1.0     xfun_0.19            lmtest_0.9-37       </code></pre>
+ [1] tseries_0.10-47      httr_1.4.2           splines_3.6.2       
+ [4] jsonlite_1.7.2       viridisLite_0.3.0    modelr_0.1.6        
+ [7] assertthat_0.2.1     TTR_0.23-6           cellranger_1.1.0    
+[10] yaml_2.2.1           pillar_1.4.6         backports_1.2.0     
+[13] lattice_0.20-40      glue_1.4.2           quadprog_1.5-8      
+[16] digest_0.6.27        rvest_0.3.5          colorspace_1.4-1    
+[19] Matrix_1.2-18        htmltools_0.5.0.9003 timeDate_3043.102   
+[22] pkgconfig_2.0.3      broom_0.7.0          haven_2.2.0         
+[25] bookdown_0.21.6      scales_1.1.1         webshot_0.5.2       
+[28] mgcv_1.8-31          generics_0.0.2       ellipsis_0.3.1      
+[31] withr_2.3.0          urca_1.3-0           nnet_7.3-13         
+[34] cli_2.1.0            quantmod_0.4-15      magrittr_2.0.1      
+[37] crayon_1.3.4         readxl_1.3.1         evaluate_0.14       
+[40] fs_1.5.0             fansi_0.4.1          nlme_3.1-144        
+[43] xts_0.12-0           xml2_1.2.2           tools_3.6.2         
+[46] hms_0.5.3            lifecycle_0.2.0      locfit_1.5-9.1      
+[49] munsell_0.5.0        reprex_0.3.0         compiler_3.6.2      
+[52] rlang_0.4.10         grid_3.6.2           rstudioapi_0.12     
+[55] leaps_3.1            rmarkdown_2.6.4      gtable_0.3.0        
+[58] fracdiff_1.5-1       DBI_1.1.0            curl_4.3            
+[61] R6_2.5.0             gridExtra_2.3        zoo_1.8-7           
+[64] lubridate_1.7.9      ggfortify_0.4.8      stringi_1.5.3       
+[67] parallel_3.6.2       Rcpp_1.0.5           vctrs_0.3.4         
+[70] dbplyr_1.4.2         tidyselect_1.1.0     xfun_0.19           
+[73] lmtest_0.9-37       </code></pre>
 <p>Este libro fue escrito con <a href="http://bookdown.org/">bookdown</a> usando <a href="http://www.rstudio.com/ide/">RStudio</a>.</p>
 <p>Esta versión fue escrita con:</p>
 <pre><code>Finding R package dependencies ... Done!</code></pre>
@@ -248,7 +252,7 @@ loaded via a namespace (and not attached):
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       America/Mexico_City         
- date     2021-01-04                  </code></pre>
+ date     2021-01-06                  </code></pre>
 </div>
 <div id="licencia" class="section level3 unnumbered">
 <h3>Licencia</h3>

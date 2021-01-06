@@ -98,7 +98,8 @@
 <li class="chapter" data-level="2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html"><i class="fa fa-check"></i><b>2</b> Funciones de autocovarianza y autocorrelación</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#función-de-autocorrelación-parcial"><i class="fa fa-check"></i><b>2.1</b> Función de autocorrelación parcial</a></li>
-<li class="chapter" data-level="2.2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#prueba-de-ljung-box"><i class="fa fa-check"></i><b>2.2</b> Prueba de Ljung-Box</a></li>
+<li class="chapter" data-level="2.2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#correlograma"><i class="fa fa-check"></i><b>2.2</b> Correlograma</a></li>
+<li class="chapter" data-level="2.3" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#prueba-de-ljung-box"><i class="fa fa-check"></i><b>2.3</b> Prueba de Ljung-Box</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="transformaciones.html"><a href="transformaciones.html"><i class="fa fa-check"></i><b>3</b> Transformaciones</a>
 <ul>
@@ -138,7 +139,7 @@
 <li class="chapter" data-level="8" data-path="imadq-proceso-integrado-y-de-media-móvil.html"><a href="imadq-proceso-integrado-y-de-media-móvil.html"><i class="fa fa-check"></i><b>8</b> <span class="math inline">\(IMA(d,q)\)</span>: Proceso Integrado y de Media Móvil</a></li>
 <li class="part"><span><b>IV Otras consideraciones</b></span></li>
 <li class="chapter" data-level="9" data-path="predictores-lineales.html"><a href="predictores-lineales.html"><i class="fa fa-check"></i><b>9</b> Predictores Lineales</a></li>
-<li class="chapter" data-level="10" data-path="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><a href="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
+<li class="chapter" data-level="10" data-path="modelacion-univariada.html"><a href="modelacion-univariada.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
 <li class="part"><span><b>V Procesos no lineales</b></span></li>
 <li class="chapter" data-level="11" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>11</b> Introducción</a></li>
 <li class="chapter" data-level="12" data-path="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><a href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>12</b> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</a></li>
@@ -180,8 +181,8 @@ f(X_t,X_{t+1}, ... , X_{t+m}) = f(X_{t+k}, X_{t+k+1}, ... , X_{t+k+m}) &amp; \fo
 \]</span></p></li>
 <li><p><strong>Procesos débilmente estacionarios:</strong> Un proceso <span class="math inline">\(X_t,t\in Z\)</span> se dice que es débilmente estacionario de orden <span class="math inline">\(k\)</span> si los primeros <span class="math inline">\(k\)</span> momentos son invariantes a través del tiempo. Podemos definir un proceso débilmente estacionario de segundo orden si cumple lo siguiente:</p>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(E[|X_t|^2]&lt; \infty \forall t \in Z\)</span></li>
-<li><span class="math inline">\(E[X_t] = \mu \forall t \in Z\)</span>, lo cual quiere decir que las esperanzas de las variables aleatorias son independientes del tiempo por lo cual permanecen constantes.</li>
+<li><span class="math inline">\(E\left[|X_t|^2\right]&lt; \infty \forall t \in Z\)</span></li>
+<li><span class="math inline">\(E[X_t] = \mu \ \ \forall t \in Z\)</span>, lo cual quiere decir que las esperanzas de las variables aleatorias son independientes del tiempo por lo cual permanecen constantes.</li>
 <li><span class="math inline">\(Cov(X_t,X_s) = Cov (X_{t+m}, X_{s+m}) \forall t, s, m \in Z\)</span>, es decir las covarianzas de dos variables aleatorias del proceso que se encuentran en distintos puntos del tiempo dependen solamente del lapso transcurrido entre cada una de ellas.</li>
 </ol></li>
 </ul>
@@ -197,6 +198,7 @@ Cov(\epsilon_{t_i},\epsilon_{t_j})=0 \space \forall t_i \neq t_j
 \end{array}
 \]</span></p>
 <p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>La segunda gráfica lleva el nombre de <strong>correlograma</strong>, la cual esta creada con los valores de autocorrelación, los cuales se ven en el siguiente capítulo.</p>
 </div>
 <div id="caminata-aleatoria" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Caminata aleatoria</h2>

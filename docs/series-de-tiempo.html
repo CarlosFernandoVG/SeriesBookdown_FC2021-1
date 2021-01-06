@@ -98,7 +98,8 @@
 <li class="chapter" data-level="2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html"><i class="fa fa-check"></i><b>2</b> Funciones de autocovarianza y autocorrelación</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#función-de-autocorrelación-parcial"><i class="fa fa-check"></i><b>2.1</b> Función de autocorrelación parcial</a></li>
-<li class="chapter" data-level="2.2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#prueba-de-ljung-box"><i class="fa fa-check"></i><b>2.2</b> Prueba de Ljung-Box</a></li>
+<li class="chapter" data-level="2.2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#correlograma"><i class="fa fa-check"></i><b>2.2</b> Correlograma</a></li>
+<li class="chapter" data-level="2.3" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#prueba-de-ljung-box"><i class="fa fa-check"></i><b>2.3</b> Prueba de Ljung-Box</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="transformaciones.html"><a href="transformaciones.html"><i class="fa fa-check"></i><b>3</b> Transformaciones</a>
 <ul>
@@ -138,7 +139,7 @@
 <li class="chapter" data-level="8" data-path="imadq-proceso-integrado-y-de-media-móvil.html"><a href="imadq-proceso-integrado-y-de-media-móvil.html"><i class="fa fa-check"></i><b>8</b> <span class="math inline">\(IMA(d,q)\)</span>: Proceso Integrado y de Media Móvil</a></li>
 <li class="part"><span><b>IV Otras consideraciones</b></span></li>
 <li class="chapter" data-level="9" data-path="predictores-lineales.html"><a href="predictores-lineales.html"><i class="fa fa-check"></i><b>9</b> Predictores Lineales</a></li>
-<li class="chapter" data-level="10" data-path="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><a href="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
+<li class="chapter" data-level="10" data-path="modelacion-univariada.html"><a href="modelacion-univariada.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
 <li class="part"><span><b>V Procesos no lineales</b></span></li>
 <li class="chapter" data-level="11" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>11</b> Introducción</a></li>
 <li class="chapter" data-level="12" data-path="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><a href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>12</b> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</a></li>
@@ -181,17 +182,17 @@ variaciones de la propia serie, que se consideran consecuencias de fuerzas persi
 </li>
 <li><strong>Estacionalidad</strong>: El componente de la serie de tiempo que representa la variabilidad en los datos debida a influencias de las estaciones, se llama componente estacional. Esta variación corresponde a los movimientos de la serie que recurren año tras año en los mismos meses (o en los mismos trimestres) del año poco más o menos con la misma intensidad. Por ejemplo: Un fabricante de albercas inflables espera poca actividad de ventas durante los meses de otoño e invierno y tiene ventas máximas en los de primavera y verano, mientras que los fabricantes de equipo para la nieve y ropa de abrigo esperan un comportamiento anual opuesto al del fabricante de albercas.<br />
 </li>
-<li><strong>Componente aleatoria</strong>: Esta se debe a factores a corto plazo, imprevisibles y no recurrentes que afectan a la serie de tiempo. Como este componente explica la variabilidad aleatoria de la serie, es impredecible, es decir, no se puede esperar predecir su impacto sobre la serie de tiempo. Existen dos tipos de variación irregular:</li>
-</ol>
+<li><strong>Componente aleatoria</strong>: Esta se debe a factores a corto plazo, imprevisibles y no recurrentes que afectan a la serie de tiempo. Como este componente explica la variabilidad aleatoria de la serie, es impredecible, es decir, no se puede esperar predecir su impacto sobre la serie de tiempo. Existen dos tipos de variación irregular:
 <ol style="list-style-type: lower-alpha">
 <li>Las variaciones que son provocadas por acontecimientos especiales, fácilmente identificables, como las elecciones, inundaciones, huelgas, terremotos.</li>
 <li>Variaciones aleatorias o por casualidad, cuyas causas no se pueden señalar en forma exacta, pero que tienden a equilibrarse a la larga.</li>
+</ol></li>
 </ol>
 <p>Se puede observar que de los tres componentes, los dos primeros son determinísticos, mientas que la última es aleatoria. Entonces la serie se tiempo se puede expresar como:</p>
 <p><span class="math display">\[X_{t}=T_{t}+E_{t}+I_{t}\]</span>
 donde <span class="math inline">\(T_{t}\)</span> es el componente de <strong>tendencia</strong>, <span class="math inline">\(E_{t}\)</span> el componente de <strong>estacionalidad</strong> y <span class="math inline">\(I_{t}\)</span> la componente <strong>aleatoria</strong>.</p>
 <p>Según las características de las series de tiempo estas pueden clasificarse en:</p>
-<p><strong>Estacionarias</strong>: Una serie de tiempo estacionaria es estable a lo largo del tiempo, es decir su media, varianza y <strong>autocovarianza</strong> (en diferentes rezados o diferentes tiempos) son constantes en el tiempo.</p>
+<p><strong>Estacionarias</strong>: Una serie de tiempo estacionaria es estable a lo largo del tiempo, es decir su media, varianza y <strong>autocovarianza</strong> (en diferentes rezagos o diferentes tiempos) son constantes en el tiempo.</p>
 <p>Es decir que sin importar el momento en que se midan (invariantes respecto al tiempo) se debe cumplir lo siguiente:</p>
 <ul>
 <li>Media: <span class="math inline">\(\mathbb{E}(X_t) = \mathbb{E}(X_{t+k}) = \mu\)</span></li>

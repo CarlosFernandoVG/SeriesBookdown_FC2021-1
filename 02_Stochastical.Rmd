@@ -17,8 +17,8 @@ f(X_t,X_{t+1}, ... , X_{t+m}) = f(X_{t+k}, X_{t+k+1}, ... , X_{t+k+m}) & \forall
 $$
 
 + **Procesos débilmente estacionarios:** Un proceso $X_t,t\in Z$ se dice que es débilmente estacionario de orden $k$ si los primeros $k$ momentos son invariantes a través del tiempo. Podemos definir un proceso débilmente estacionario de segundo orden si cumple lo siguiente:
-  1. $E[|X_t|^2]< \infty \forall t \in Z$
-  2. $E[X_t] = \mu \forall t \in Z$, lo cual quiere decir que las esperanzas de las variables aleatorias son independientes del tiempo por lo cual permanecen constantes.
+  1. $E\left[|X_t|^2\right]< \infty \forall t \in Z$
+  2. $E[X_t] = \mu \ \ \forall t \in Z$, lo cual quiere decir que las esperanzas de las variables aleatorias son independientes del tiempo por lo cual permanecen constantes.
   3. $Cov(X_t,X_s) = Cov (X_{t+m}, X_{s+m}) \forall t, s, m \in Z$, es decir las covarianzas de dos variables aleatorias del proceso que se encuentran en distintos puntos del tiempo dependen solamente del lapso transcurrido entre cada una de ellas.
 
 En resumen, si una serie es estacionaria, su media, su varianza y su autocovarianza (en diferentes rezagos) permanecen iguales sin importar el momento en el cual se midan; es decir, son invariantes respecto al tiempo.
@@ -51,6 +51,8 @@ whitenoise <- tibble(x = 1:100, y = rnorm(100, mean = 0, sd = 1))
   general_theme) 
 # plot(ts(whitenoise$y, start = 1, end = 100))
 ```
+
+La segunda gráfica lleva el nombre de **correlograma**, la cual esta creada con los valores de autocorrelación, los cuales se ven en el siguiente capítulo.
 
 ## Caminata aleatoria
 

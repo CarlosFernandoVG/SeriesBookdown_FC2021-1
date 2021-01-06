@@ -18,6 +18,10 @@ url: 'https\://github.com/CarlosFernandoVG/SeriesBookdown_FC2021-1'
 description: "Segundo material para el curso Análisis de Supervivencia y Series de Tiempo 2021-1 en la Facultado de Ciencias, Universidad Nacional Autónoma de México"
 always_allow_html: true
 ---
+---
+nocite: | 
+  @cryer2008time, @nielsen2019practical, @hyndman2018forecasting, @holmes2019applied, @william2006time
+...
 
 # Prefacio {-}
 
@@ -30,6 +34,7 @@ library(latex2exp)
 library(knitr)
 library(kableExtra)
 library(forecast)
+library(TSA)
 knitr::opts_chunk$set(
       comment = NA,
       message = FALSE, 

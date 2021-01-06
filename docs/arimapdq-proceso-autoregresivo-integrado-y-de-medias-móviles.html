@@ -98,7 +98,8 @@
 <li class="chapter" data-level="2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html"><i class="fa fa-check"></i><b>2</b> Funciones de autocovarianza y autocorrelación</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#función-de-autocorrelación-parcial"><i class="fa fa-check"></i><b>2.1</b> Función de autocorrelación parcial</a></li>
-<li class="chapter" data-level="2.2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#prueba-de-ljung-box"><i class="fa fa-check"></i><b>2.2</b> Prueba de Ljung-Box</a></li>
+<li class="chapter" data-level="2.2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#correlograma"><i class="fa fa-check"></i><b>2.2</b> Correlograma</a></li>
+<li class="chapter" data-level="2.3" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#prueba-de-ljung-box"><i class="fa fa-check"></i><b>2.3</b> Prueba de Ljung-Box</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="transformaciones.html"><a href="transformaciones.html"><i class="fa fa-check"></i><b>3</b> Transformaciones</a>
 <ul>
@@ -138,7 +139,7 @@
 <li class="chapter" data-level="8" data-path="imadq-proceso-integrado-y-de-media-móvil.html"><a href="imadq-proceso-integrado-y-de-media-móvil.html"><i class="fa fa-check"></i><b>8</b> <span class="math inline">\(IMA(d,q)\)</span>: Proceso Integrado y de Media Móvil</a></li>
 <li class="part"><span><b>IV Otras consideraciones</b></span></li>
 <li class="chapter" data-level="9" data-path="predictores-lineales.html"><a href="predictores-lineales.html"><i class="fa fa-check"></i><b>9</b> Predictores Lineales</a></li>
-<li class="chapter" data-level="10" data-path="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><a href="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
+<li class="chapter" data-level="10" data-path="modelacion-univariada.html"><a href="modelacion-univariada.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
 <li class="part"><span><b>V Procesos no lineales</b></span></li>
 <li class="chapter" data-level="11" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>11</b> Introducción</a></li>
 <li class="chapter" data-level="12" data-path="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><a href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>12</b> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</a></li>
@@ -191,13 +192,13 @@ X_t -X_{t-1} &amp;= \mu_t+Z_t-\mu_{t-1}-Z_{t-1}\\
 \]</span></p>
 <p>El cual ya no depende de <span class="math inline">\(t\)</span>.</p>
 <p>A continuación se muestran los resultados para un modelo <span class="math inline">\(ARIMA(2,1,1)\)</span> de la siguiente forma <span class="math inline">\(X_t=0.85X_{t-1}-0.45X_{t-2}+.30\epsilon_{t-1}\)</span></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Además de las gráficas de Autocorrelación simple y parcial.</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>A continuación se muestran los resultados para un modelo <span class="math inline">\(ARIMA(2,2,1)\)</span> de la siguiente forma <span class="math inline">\(X_t=0.85X_{t-1}-0.45X_{t-2}+.30\epsilon_{t-1}\)</span></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Además de las gráficas de Autocorrelación simple y parcial.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>A continuación se muestran los resultados para un modelo <span class="math inline">\(ARIMA(2,2,1)\)</span> de la siguiente forma <span class="math inline">\(X_t=0.85X_{t-1}-0.45X_{t-2}+.30\epsilon_{t-1}\)</span></p>
 <p><img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Además de las gráficas de Autocorrelación simple y parcial.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>¿Qué se puede decir del efecto que tiene el parámetro <span class="math inline">\(d\)</span> al comparar las gráficas de ambas series?</p>
 
 </div>

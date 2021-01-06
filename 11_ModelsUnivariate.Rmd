@@ -1,4 +1,4 @@
-# Construcción de modelos para series de tiempo univariadas
+# Construcción de modelos para series de tiempo univariadas {#modelacion-univariada}
 
 Para construir un modelo $ARIMA$ que ajuste a una serie tiempo dada, se debe seguir un proceso iterativo de tres etapas. Primero identificar un modelo $ARIMA(p,d,q)$ tentativo, segundo, estimarlos parámetros desconocidos del modelo. Tercero, mediante el análisis de residuales verificar si el modelo propuesto es el adecuado.
 

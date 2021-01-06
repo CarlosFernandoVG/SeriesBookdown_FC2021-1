@@ -98,7 +98,8 @@
 <li class="chapter" data-level="2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html"><i class="fa fa-check"></i><b>2</b> Funciones de autocovarianza y autocorrelación</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#función-de-autocorrelación-parcial"><i class="fa fa-check"></i><b>2.1</b> Función de autocorrelación parcial</a></li>
-<li class="chapter" data-level="2.2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#prueba-de-ljung-box"><i class="fa fa-check"></i><b>2.2</b> Prueba de Ljung-Box</a></li>
+<li class="chapter" data-level="2.2" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#correlograma"><i class="fa fa-check"></i><b>2.2</b> Correlograma</a></li>
+<li class="chapter" data-level="2.3" data-path="funciones-de-autocovarianza-y-autocorrelación.html"><a href="funciones-de-autocovarianza-y-autocorrelación.html#prueba-de-ljung-box"><i class="fa fa-check"></i><b>2.3</b> Prueba de Ljung-Box</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="transformaciones.html"><a href="transformaciones.html"><i class="fa fa-check"></i><b>3</b> Transformaciones</a>
 <ul>
@@ -138,7 +139,7 @@
 <li class="chapter" data-level="8" data-path="imadq-proceso-integrado-y-de-media-móvil.html"><a href="imadq-proceso-integrado-y-de-media-móvil.html"><i class="fa fa-check"></i><b>8</b> <span class="math inline">\(IMA(d,q)\)</span>: Proceso Integrado y de Media Móvil</a></li>
 <li class="part"><span><b>IV Otras consideraciones</b></span></li>
 <li class="chapter" data-level="9" data-path="predictores-lineales.html"><a href="predictores-lineales.html"><i class="fa fa-check"></i><b>9</b> Predictores Lineales</a></li>
-<li class="chapter" data-level="10" data-path="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><a href="construcción-de-modelos-para-series-de-tiempo-univariadas.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
+<li class="chapter" data-level="10" data-path="modelacion-univariada.html"><a href="modelacion-univariada.html"><i class="fa fa-check"></i><b>10</b> Construcción de modelos para series de tiempo univariadas</a></li>
 <li class="part"><span><b>V Procesos no lineales</b></span></li>
 <li class="chapter" data-level="11" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>11</b> Introducción</a></li>
 <li class="chapter" data-level="12" data-path="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><a href="archq-proceso-autoregresivo-con-heterocedasticidad-condicional.html"><i class="fa fa-check"></i><b>12</b> <span class="math inline">\(ARCH(q)\)</span>: Proceso Autoregresivo con Heterocedasticidad Condicional</a></li>
@@ -165,11 +166,11 @@
             <section class="normal" id="section-">
 <div id="funciones-de-autocovarianza-y-autocorrelación" class="section level1" number="2">
 <h1><span class="header-section-number">Capítulo 2</span> Funciones de autocovarianza y autocorrelación</h1>
-<p>Como se mencionó en el apartado anterior tenemos que para un proceso estacionario <span class="math inline">\(X_t\)</span>,su esperanza es <span class="math inline">\(E[X_t] = \mu\)</span> y su varianza <span class="math inline">\(Var[X_t]=E[X_t-\mu]^2=\sigma^2\)</span> las cuales son constantes; así como las covarianzas <span class="math inline">\(Cov(X_t,X_s)\)</span>, que son funciones que solamente dependen del tiempo que transcurre entre <span class="math inline">\(t\)</span> y <span class="math inline">\(s\)</span>; entonces en este caso podemos escribir la covarianza entre <span class="math inline">\(X_t\)</span> y <span class="math inline">\(X_{t+k}\)</span> como:</p>
+<p>Como se mencionó en el apartado anterior, tenemos que para un proceso estacionario <span class="math inline">\(X_t\)</span>, su esperanza es <span class="math inline">\(E[X_t] = \mu\)</span> y su varianza <span class="math inline">\(Var[X_t]=E[X_t-\mu]^2=\sigma^2\)</span> las cuales son constantes; así como las covarianzas <span class="math inline">\(Cov(X_t,X_s)\)</span>, que son funciones que solamente dependen del tiempo que transcurre entre <span class="math inline">\(t\)</span> y <span class="math inline">\(s\)</span>; entonces en este caso podemos escribir la <strong>covarianza</strong> entre <span class="math inline">\(X_t\)</span> y <span class="math inline">\(X_{t+k}\)</span> como:</p>
 <p><span class="math display">\[
 \gamma_k=Cov(X_t,X_{t+k})=E(X_t-\mu)(X_{t+k}-\mu)
 \]</span></p>
-<p>Y su correlación como:
+<p>Y su <strong>correlación</strong> como:
 <span class="math display">\[
 \rho_k =\frac{Cov(X_t,X_{t+k})}{\sqrt{Var(X_t)}\sqrt{Var(X_{t+k})}}=\frac{\gamma_k}{\gamma_0}
 \]</span></p>
@@ -181,15 +182,30 @@
 <li><span class="math inline">\(-1\leq\rho_j\leq 1\)</span></li>
 <li><span class="math inline">\(\rho_j=\rho_{-j}\)</span></li>
 </ul>
+<p>En general, se utiliza la función de autocorrelación muestral <span class="math inline">\(r_k\)</span>, la cual queda determinada por la siguiente expresión</p>
+<p><span class="math display">\[
+r_k = \frac{\sum_\limits{t = k+1}^n (X_t-\bar{X})(X_{t-k}-\bar{X})}{\sum_\limits{t = 1}^n(X_t-\bar{X})^2}
+\]</span></p>
+<p>Para <span class="math inline">\(k = 1, 2, \dots\)</span> y donde <span class="math inline">\(\bar{X}\)</span> es la media de las observaciones.</p>
 <div id="función-de-autocorrelación-parcial" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Función de autocorrelación parcial</h2>
 <p>La función de correlación parcial estima la correlación entre una observación <span class="math inline">\(k\)</span> tiempos después de la observación actual removiendo los efectos de las correlaciones de las observaciones intermedias; es decir:</p>
 <p><span class="math display">\[
 \pi_j=corr(X_j,X_{j-k}|X_{j-1},X_{j-2},...X_{j-k-1})
 \]</span></p>
+<p>Para este caso, el estimador apropiado es la función de autocorrelación parcial muestral <span class="citation">Cryer and Chan (<a href="#ref-cryer2008time" role="doc-biblioref">2008</a>)</span>, el cual puede obtenerse utilizando <span class="math inline">\(r_k\)</span> para la siguiente expresión recursiva</p>
+<p><span class="math display">\[
+\pi_j=\frac{\rho_j-\sum_\limits{k = 1}^{j-1}\pi_{j-1, k}\rho_{j-k}}{1-\sum_\limits{k = 1}^{j-1}\pi_{j-1, k}\rho_k}
+\]</span>
+donde <span class="math inline">\(\pi_{j, k} = \pi_{j-1, k}-\pi_{j}\pi_{j-1, j-k}\)</span> para <span class="math inline">\(k = 1,2, \dots, j-1\)</span>.</p>
 </div>
-<div id="prueba-de-ljung-box" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Prueba de Ljung-Box</h2>
+<div id="correlograma" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Correlograma</h2>
+<p>Una vez calculadas las funciones de autocorrelación y autocorrelación parcial, se grafican contra los diferentes rezagos para obtener los correlogramas. Estos son serán de gran utilidad para la identificación del modelo, tal como se menciona en el capítulo <a href="modelacion-univariada.html#modelacion-univariada">10</a> y en el complemento a este material <a href="https://rpubs.com/CarlosFVG/SeriesTCodeCFVG">SeriesTCode</a>. Como ejemplo, se presentan los gráficos correspondientes a los datos de <code>nottem</code>.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="prueba-de-ljung-box" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Prueba de Ljung-Box</h2>
 <p>Esta prueba permite probar en forma conjunta que todos los coeficientes de autocorrelación son simultáneamente iguales a cero, esto es que son independientes. La prueba está definida como</p>
 <p><span class="math display">\[
 LB=n(n+2)\sum_{k=1}^m\frac{\hat\rho_k^2}{n-k}\sim \chi_{(m)}^2
@@ -203,6 +219,12 @@ H_0:\mbox{Las autocorrelaciones son independientes} &amp; H_1: \mbox{Las autocor
 \]</span></p>
 <p>Entonces si <span class="math inline">\(LB\)</span> excede el valor crítico de la tabla <span class="math inline">\(Ji\)</span> cuadrada al nivel de significancia seleccionado, no se acepta la hipótesis de que todos los coeficientes de autocorrelación son iguales a cero, por lo tanto al menos algunos de ellos deben ser diferentes de cero.</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references hanging-indent">
+<div id="ref-cryer2008time">
+<p>Cryer, Jonathan D, and Kung-Sik Chan. 2008. <em>Time Series Analysis: With Applications in R</em>. Springer Science &amp; Business Media.</p>
 </div>
 </div>
             </section>

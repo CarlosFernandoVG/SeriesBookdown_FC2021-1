@@ -23,9 +23,8 @@ Los componentes de una serie de tiempo son:
 variaciones de la propia serie, que se consideran consecuencias de fuerzas persistentes que afectan el crecimiento o la reducción de la misma, tales como: cambios en la población, en las características demográficas de la misma, cambios en los ingresos, en la salud, en el nivel de educación y  tecnología. Las tendencias a largo plazo se ajustan a diversos esquemas. Algunas se mueven continuamente hacía arriba, otras declinan, y otras más permanecen igual en un cierto período o intervalo de tiempo.  
 2. **Estacionalidad**: El componente de la serie de tiempo que representa la variabilidad en los datos debida a influencias de las estaciones, se llama componente estacional. Esta variación corresponde a los movimientos de la serie que recurren año tras año en los mismos meses (o en los mismos trimestres) del año poco más o menos con la misma intensidad.  Por ejemplo: Un fabricante de albercas inflables espera poca actividad de ventas durante los meses de otoño e invierno y tiene ventas máximas en los de primavera y verano, mientras que los fabricantes de equipo para la nieve y ropa de abrigo esperan un comportamiento anual opuesto al del fabricante de albercas.    
 3. **Componente aleatoria**: Esta se debe a factores a corto plazo, imprevisibles y no recurrentes que afectan a la serie de tiempo. Como este componente explica la variabilidad aleatoria de la serie, es impredecible, es decir, no se puede esperar predecir su impacto sobre la serie de tiempo. Existen dos tipos de variación irregular: 
-
-a) Las variaciones que son provocadas por acontecimientos especiales, fácilmente identificables, como las elecciones, inundaciones, huelgas, terremotos. 
-b) Variaciones aleatorias o por casualidad, cuyas causas no se pueden señalar en forma exacta, pero que tienden a equilibrarse a la larga. 
+    a) Las variaciones que son provocadas por acontecimientos especiales, fácilmente identificables, como las elecciones, inundaciones, huelgas, terremotos. 
+    b) Variaciones aleatorias o por casualidad, cuyas causas no se pueden señalar en forma exacta, pero que tienden a equilibrarse a la larga. 
 
 Se puede observar que de los tres componentes, los dos primeros son determinísticos, mientas que la última es aleatoria. Entonces la serie se tiempo se puede expresar como:
 
@@ -34,7 +33,7 @@ donde $T_{t}$ es el componente de **tendencia**, $E_{t}$ el componente de **esta
 
 Según las características de las series de tiempo estas pueden clasificarse en:
 
-**Estacionarias**: Una serie de tiempo estacionaria es estable a lo largo del tiempo, es decir su media, varianza y **autocovarianza** (en diferentes rezados o diferentes tiempos) son constantes en el tiempo.
+**Estacionarias**: Una serie de tiempo estacionaria es estable a lo largo del tiempo, es decir su media, varianza y **autocovarianza** (en diferentes rezagos o diferentes tiempos) son constantes en el tiempo.
 
 Es decir que sin importar el momento en que se midan (invariantes respecto al tiempo) se debe cumplir lo siguiente:
 

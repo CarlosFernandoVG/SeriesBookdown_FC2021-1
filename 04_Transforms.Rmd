@@ -4,7 +4,7 @@ La mayoría de las series de tiempo no son débilmente estacionarias, es decir q
 
 ## Suavizamiento por medias móviles
 
-Se mencionó que las series de tiempo se pueden ver como la suma de tres componentes: una tendencia, una estacionalidad y una componente aleatorio o irregular. Ahora bien, en este método de suavizamiento el objetivo es estimar y extraer la tendencia ($T_t$) del modelo. Lo anterior se puede realizar estimando la tendencia con: 
+Se mencionó que las series de tiempo se pueden ver como la suma de tres componentes: una tendencia, una estacionalidad y una componente aleatorio o irregular. Ahora bien, en este método de suavizamiento el objetivo es estimar y extraer **la tendencia** $\left(T_t\right)$ del modelo. Lo anterior se puede realizar estimando la tendencia con: 
 
 $$
 \hat T_t=(2q+1)^{-1}\sum_{j=-q}^q X_{t-j},\space q+1\leq t\leq n-q
@@ -14,7 +14,7 @@ Este es uno de mucho filtros lineales que podrían aplicarse ($\hat T_t=\sum_{j=
 
 ## Suavizamiento por polinomios ajustados
 
-En este método de suavizamiento el objetivo es estimar y extraer la tendencia ($T_t$) y la estacionalidad ($E_t$) del modelo. Si $E_t= 0$, se tiene un caso de no estacionariedad simple, por lo que el proceso tiene un comportamiento estacionario alrededor de la tendencia y para estimar $T_t$ se supone que tiene la siguiente forma:
+En este método de suavizamiento el objetivo es estimar y extraer la **tendencia** ($T_t$) y la **estacionalidad** ($E_t$) del modelo. Si $E_t= 0$, se tiene un caso de no estacionariedad simple, por lo que el proceso tiene un comportamiento estacionario alrededor de la tendencia y para estimar $T_t$ se supone que tiene la siguiente forma:
 
 $$
 T_t = a_0 + a_1 +... + a_pt^p
