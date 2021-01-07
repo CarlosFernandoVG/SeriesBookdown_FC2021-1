@@ -17,6 +17,8 @@ Donde $\alpha_0>0$,$\alpha_i\ge0, i=1,...,q$ y $\beta_j\ge0, j=1,...,p$. Para ga
 A continuación se muestran las simulaciones de un modelo $GARCH(1,1)$ con la varianza modelada de la siguiente forma: $\sigma^2_{t}=0.05+ 0.4X_{t-1}+0.55\sigma^2_{t-1}$
 
 ```{r}
-x <- garch.sim(alpha = c(.05,.4),beta = c(.55),n=500)
-plot.ts(x)
+set.seed(30)
+x1 <- garch.sim(alpha = c(.05,.4),beta = c(.55),n=500)
+# plot.ts(x)
+tibble(x = 1:500, y = x1) %>% ggplot(aes(x = x, y = y)) + geom_line() + general_theme + labs(x = "Tiempo", y = NULL)
 ```

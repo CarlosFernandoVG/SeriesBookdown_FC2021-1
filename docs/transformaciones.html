@@ -169,7 +169,7 @@
 <p>La mayoría de las series de tiempo no son débilmente estacionarias, es decir que no muestran una media ni una varianza constantes a lo largo del tiempo y pueden mostrar tendencias crecientes o bien, decrecientes. Para poder trabajar con este tipo de series de una forma más sencilla y manejable, existen métodos para transformarlas y verlas como realizaciones de una serie de tiempo débilmente estacionaria. Las transformaciones más comunes son el suavizamiento a través de medias móviles o ajustando polinomios a la serie en cuestión, la diferenciación.</p>
 <div id="suavizamiento-por-medias-móviles" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Suavizamiento por medias móviles</h2>
-<p>Se mencionó que las series de tiempo se pueden ver como la suma de tres componentes: una tendencia, una estacionalidad y una componente aleatorio o irregular. Ahora bien, en este método de suavizamiento el objetivo es estimar y extraer la tendencia (<span class="math inline">\(T_t\)</span>) del modelo. Lo anterior se puede realizar estimando la tendencia con:</p>
+<p>Se mencionó que las series de tiempo se pueden ver como la suma de tres componentes: una tendencia, una estacionalidad y una componente aleatorio o irregular. Ahora bien, en este método de suavizamiento el objetivo es estimar y extraer <strong>la tendencia</strong> <span class="math inline">\(\left(T_t\right)\)</span> del modelo. Lo anterior se puede realizar estimando la tendencia con:</p>
 <p><span class="math display">\[
 \hat T_t=(2q+1)^{-1}\sum_{j=-q}^q X_{t-j},\space q+1\leq t\leq n-q
 \]</span></p>
@@ -177,7 +177,7 @@
 </div>
 <div id="suavizamiento-por-polinomios-ajustados" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Suavizamiento por polinomios ajustados</h2>
-<p>En este método de suavizamiento el objetivo es estimar y extraer la tendencia (<span class="math inline">\(T_t\)</span>) y la estacionalidad (<span class="math inline">\(E_t\)</span>) del modelo. Si <span class="math inline">\(E_t= 0\)</span>, se tiene un caso de no estacionariedad simple, por lo que el proceso tiene un comportamiento estacionario alrededor de la tendencia y para estimar <span class="math inline">\(T_t\)</span> se supone que tiene la siguiente forma:</p>
+<p>En este método de suavizamiento el objetivo es estimar y extraer la <strong>tendencia</strong> (<span class="math inline">\(T_t\)</span>) y la <strong>estacionalidad</strong> (<span class="math inline">\(E_t\)</span>) del modelo. Si <span class="math inline">\(E_t= 0\)</span>, se tiene un caso de no estacionariedad simple, por lo que el proceso tiene un comportamiento estacionario alrededor de la tendencia y para estimar <span class="math inline">\(T_t\)</span> se supone que tiene la siguiente forma:</p>
 <p><span class="math display">\[
 T_t = a_0 + a_1 +... + a_pt^p
 \]</span></p>
@@ -186,7 +186,7 @@ T_t = a_0 + a_1 +... + a_pt^p
 </div>
 <div id="diferencias-de-box-jenkins" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Diferencias de Box-Jenkins</h2>
-<p>Consiste en aplicar diferencias a la serie de tiempo estudiada hasta que las observaciones se perciban como componentes de una serie débilmente estacionaria, se debe comprender los siguientes operadores para el método:</p>
+<p>Consiste en aplicar diferencias a la serie de tiempo estudiada hasta que las observaciones se perciban como componentes de una serie débilmente estacionaria. Se debe comprender los siguientes operadores para el método:</p>
 <p>El <strong>operador de retraso</strong> se denota con una letra <span class="math inline">\(B\)</span> o <span class="math inline">\(\mathcal{L}\)</span> y se define como el valor retrasado de una serie de tiempo temporal indicado por el exponente del operador. De manera particular se tiene <span class="math inline">\(BX_t = X_{t-1}\)</span>, por lo que si se aplica varias veces el operador, la serie se retardaría <span class="math inline">\(k\)</span>-unidades temporales:</p>
 <p><span class="math display">\[
 B^kX_t=X_{t-k}

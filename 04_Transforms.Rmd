@@ -26,7 +26,7 @@ Los parámetros $a_i$ se estiman mediante mínimos cuadrados ordinarios, es deci
 
 ## Diferencias de Box-Jenkins
 
-Consiste en aplicar diferencias a la serie de tiempo estudiada hasta que las observaciones se perciban como componentes de una serie débilmente estacionaria, se debe comprender los siguientes operadores para el método: 
+Consiste en aplicar diferencias a la serie de tiempo estudiada hasta que las observaciones se perciban como componentes de una serie débilmente estacionaria. Se debe comprender los siguientes operadores para el método: 
 
 El **operador de retraso** se denota con una letra $B$ o $\mathcal{L}$ y se define como el valor retrasado de una serie de tiempo temporal indicado por el exponente del operador. De manera particular se tiene $BX_t = X_{t-1}$, por lo que si se aplica varias veces el operador, la serie se retardaría $k$-unidades temporales:
 

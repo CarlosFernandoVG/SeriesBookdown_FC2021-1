@@ -69,12 +69,16 @@ Donde $\alpha_0>0$ y $\alpha_i\ge0, i=1,...,q$. Para garantizar que el proceso $
 A continuación se muestran las simulaciones de un modelo $ARCH(1)$ con la varianza modelada de la siguiente forma: $\sigma^2_{t}=0.05+ 0.8X_{t-1}$
 
 ```{r}
-x <- garch.sim(alpha = c(.05,.8),n=1000)
-plot.ts(x)
+set.seed(21)
+x1 <- garch.sim(alpha = c(.05,.8),n=1000)
+# plot.ts(x)
+tibble(x = 1:1000, y = x1) %>% ggplot(aes(x = x, y = y)) + geom_line() + general_theme + labs(x = "Tiempo", y = NULL)
 ```
 
 A continuación se muestran las simulaciones de un modelo $ARCH(3)$ con la varianza modelada de la siguiente forma: $\sigma^2_{t}=0.05+ 0.6X_{t-1}+0.2X_{t-2}+0.1X_{t-3}$
 ```{r}
-x <- garch.sim(alpha = c(.05,.6,.2,.1),n=1000)
-plot.ts(x)
+set.seed(31)
+x1 <- garch.sim(alpha = c(.05,.6,.2,.1),n=1000)
+# plot.ts(x)
+tibble(x = 1:1000, y = x1) %>% ggplot(aes(x = x, y = y)) + geom_line() + general_theme + labs(x = "Tiempo", y = NULL)
 ```
