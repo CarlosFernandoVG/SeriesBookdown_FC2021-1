@@ -4,16 +4,21 @@ processing file: _main.Rmd
 Don't know how to automatically pick scale for object of type ts. Defaulting to continuous.
 output file: _main.knit.md
 
-! Missing { inserted.
-<to be read again> 
-                   \limits 
-l.471 ...})}{\sum_\limits{t = 1}^n(X_t-\bar{X})^2}
 
-Error: LaTeX failed to compile _main.tex. See https://yihui.org/tinytex/r/#debugging for debugging tips. See _main.log for more info.
-In addition: Warning messages:
+Output created: docs/_main.pdf
+Warning messages:
 1: In utils::citation(..., lib.loc = lib.loc) :
   no date field in DESCRIPTION file of package 'bookdown'
 2: In utils::citation(..., lib.loc = lib.loc) :
   no date field in DESCRIPTION file of package 'rmarkdown'
 3: Removed 9 row(s) containing missing values (geom_path). 
-Execution halted
+4: In grep("^(LaTeX|Package [[:alnum:]]+) Warning:", x) :
+  input string 1453 is invalid in this locale
+5: In grep("^(LaTeX|Package [[:alnum:]]+) Warning:", x) :
+  input string 1455 is invalid in this locale
+6: In grep("^(LaTeX|Package [[:alnum:]]+) Warning:", x) :
+  input string 1482 is invalid in this locale
+7: In grep("^(LaTeX|Package [[:alnum:]]+) Warning:", x) :
+  input string 1484 is invalid in this locale
+8: In grep("^(LaTeX|Package [[:alnum:]]+) Warning:", x) :
+  input string 1570 is invalid in this locale

@@ -70,7 +70,7 @@ Las hipótesis de esta prueba son:
 $$
 \begin{array}{cc}
 H_0:\mbox{Los coeficientes de autocorrelación son simultáneamente iguales a cero}\\
-H_1: \mbox{Aalguno de los coeficientes de autocorrelación es distinto de cero}
+H_1: \mbox{Alguno de los coeficientes de autocorrelación es distinto de cero}
 \end{array}
 $$
 
