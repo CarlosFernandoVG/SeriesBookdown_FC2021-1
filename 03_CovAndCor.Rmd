@@ -24,7 +24,7 @@ La función de autocorrelación tiene las siguientes propiedades:
 En general, se utiliza la función de autocorrelación muestral $r_k$, la cual queda determinada por la siguiente expresión
 
 $$
-r_k = \frac{\sum_\limits{t = k+1}^n (X_t-\bar{X})(X_{t-k}-\bar{X})}{\sum_\limits{t = 1}^n(X_t-\bar{X})^2}
+r_k=\frac{\sum\limits_{t = k+1}^n (X_t-\bar{X})(X_{t-k}-\bar{X})}{\sum\limits_{t = 1}^n(X_t-\bar{X})^2}
 $$
 
 Para $k = 1, 2, \dots$ y donde $\bar{X}$  es la media de las observaciones.
@@ -37,10 +37,10 @@ $$
 \pi_j=corr(X_j,X_{j-k}|X_{j-1},X_{j-2},...X_{j-k-1})
 $$
 
-Para este caso, el estimador apropiado es la función de autocorrelación parcial muestral @cryer2008time, el cual puede obtenerse utilizando $r_k$ para la siguiente expresión recursiva
+Para este caso, el estimador apropiado es la función de autocorrelación parcial muestral @cryer2008time, el cual puede obtenerse utilizando $r_k$ para la siguiente expresión recursiva.
 
 $$
-\pi_j=\frac{\rho_j-\sum_\limits{k = 1}^{j-1}\pi_{j-1, k}\rho_{j-k}}{1-\sum_\limits{k = 1}^{j-1}\pi_{j-1, k}\rho_k}
+\pi_j=\frac{\rho_j-\sum\limits_{k = 1}^{j-1}\pi_{j-1, k}\rho_{j-k}}{1-\sum\limits_{k = 1}^{j-1}\pi_{j-1, k}\rho_k}
 $$
 donde $\pi_{j, k} = \pi_{j-1, k}-\pi_{j}\pi_{j-1, j-k}$ para $k = 1,2, \dots, j-1$.
 
@@ -58,7 +58,7 @@ Una vez calculadas las funciones de autocorrelación y autocorrelación parcial,
 
 ## Prueba de Ljung-Box
 
-Esta prueba permite probar en forma conjunta que todos los coeficientes de autocorrelación son simultáneamente iguales a cero, esto es que son independientes. La prueba está definida como
+Esta prueba permite probar en forma conjunta que todos los coeficientes de autocorrelación son simultáneamente iguales a cero. La prueba está definida como
 
 $$
 LB=n(n+2)\sum_{k=1}^m\frac{\hat\rho_k^2}{n-k}\sim \chi_{(m)}^2
@@ -69,8 +69,11 @@ Las hipótesis de esta prueba son:
 
 $$
 \begin{array}{cc}
-H_0:\mbox{Las autocorrelaciones son independientes} & H_1: \mbox{Las autocorrelaciones no son independientes}
+H_0:\mbox{Los coeficientes de autocorrelación son simultáneamente iguales a cero}\\
+H_1: \mbox{Aalguno de los coeficientes de autocorrelación es distinto de cero}
 \end{array}
 $$
 
-Entonces si $LB$ excede el valor crítico de la tabla $Ji$ cuadrada al nivel de significancia seleccionado, no se acepta la hipótesis de que todos los coeficientes de autocorrelación son iguales a cero, por lo tanto al menos algunos de ellos deben ser diferentes de cero.
+Entonces si $LB$ excede el valor crítico de la tabla $Ji$ cuadrada al nivel de significancia seleccionado, no se acepta la hipótesis de que todos los coeficientes de autocorrelación son iguales a cero, por lo tanto al menos algunos de ellos deben ser diferentes de cero[^2.1].
+
+[^2.1]: Originalmente la prueba esta diseñada para comprobar estadísticamente si las observaciones son independientes entre sí, bajo esta hipótesis, los coeficientes de correlación serán cero y el estadístico $LB$ será cercano a cero. Esta prueba es de gran ayuda para ver la calidad del modelo que se aplique y para validar las hipótesis que se puedan requerir en la construcción de intervalos de predicción. Se hablará más de su uso en el capítulo \@ref(modelacion-univariada).

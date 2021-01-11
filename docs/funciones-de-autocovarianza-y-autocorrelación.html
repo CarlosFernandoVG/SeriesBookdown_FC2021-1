@@ -184,7 +184,7 @@
 </ul>
 <p>En general, se utiliza la función de autocorrelación muestral <span class="math inline">\(r_k\)</span>, la cual queda determinada por la siguiente expresión</p>
 <p><span class="math display">\[
-r_k = \frac{\sum_\limits{t = k+1}^n (X_t-\bar{X})(X_{t-k}-\bar{X})}{\sum_\limits{t = 1}^n(X_t-\bar{X})^2}
+r_k=\frac{\sum\limits_{t = k+1}^n (X_t-\bar{X})(X_{t-k}-\bar{X})}{\sum\limits_{t = 1}^n(X_t-\bar{X})^2}
 \]</span></p>
 <p>Para <span class="math inline">\(k = 1, 2, \dots\)</span> y donde <span class="math inline">\(\bar{X}\)</span> es la media de las observaciones.</p>
 <div id="función-de-autocorrelación-parcial" class="section level2" number="2.1">
@@ -193,9 +193,9 @@ r_k = \frac{\sum_\limits{t = k+1}^n (X_t-\bar{X})(X_{t-k}-\bar{X})}{\sum_\limits
 <p><span class="math display">\[
 \pi_j=corr(X_j,X_{j-k}|X_{j-1},X_{j-2},...X_{j-k-1})
 \]</span></p>
-<p>Para este caso, el estimador apropiado es la función de autocorrelación parcial muestral <span class="citation">Cryer and Chan (<a href="#ref-cryer2008time" role="doc-biblioref">2008</a>)</span>, el cual puede obtenerse utilizando <span class="math inline">\(r_k\)</span> para la siguiente expresión recursiva</p>
+<p>Para este caso, el estimador apropiado es la función de autocorrelación parcial muestral <span class="citation">Cryer and Chan (<a href="#ref-cryer2008time" role="doc-biblioref">2008</a>)</span>, el cual puede obtenerse utilizando <span class="math inline">\(r_k\)</span> para la siguiente expresión recursiva.</p>
 <p><span class="math display">\[
-\pi_j=\frac{\rho_j-\sum_\limits{k = 1}^{j-1}\pi_{j-1, k}\rho_{j-k}}{1-\sum_\limits{k = 1}^{j-1}\pi_{j-1, k}\rho_k}
+\pi_j=\frac{\rho_j-\sum\limits_{k = 1}^{j-1}\pi_{j-1, k}\rho_{j-k}}{1-\sum\limits_{k = 1}^{j-1}\pi_{j-1, k}\rho_k}
 \]</span>
 donde <span class="math inline">\(\pi_{j, k} = \pi_{j-1, k}-\pi_{j}\pi_{j-1, j-k}\)</span> para <span class="math inline">\(k = 1,2, \dots, j-1\)</span>.</p>
 </div>
@@ -206,7 +206,7 @@ donde <span class="math inline">\(\pi_{j, k} = \pi_{j-1, k}-\pi_{j}\pi_{j-1, j-k
 </div>
 <div id="prueba-de-ljung-box" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Prueba de Ljung-Box</h2>
-<p>Esta prueba permite probar en forma conjunta que todos los coeficientes de autocorrelación son simultáneamente iguales a cero, esto es que son independientes. La prueba está definida como</p>
+<p>Esta prueba permite probar en forma conjunta que todos los coeficientes de autocorrelación son simultáneamente iguales a cero. La prueba está definida como</p>
 <p><span class="math display">\[
 LB=n(n+2)\sum_{k=1}^m\frac{\hat\rho_k^2}{n-k}\sim \chi_{(m)}^2
 \]</span>
@@ -214,10 +214,11 @@ donde <span class="math inline">\(n\)</span> es el tamaño de la muestra, <span 
 <p>Las hipótesis de esta prueba son:</p>
 <p><span class="math display">\[
 \begin{array}{cc}
-H_0:\mbox{Las autocorrelaciones son independientes} &amp; H_1: \mbox{Las autocorrelaciones no son independientes}
+H_0:\mbox{Los coeficientes de autocorrelación son simultáneamente iguales a cero}\\
+H_1: \mbox{Aalguno de los coeficientes de autocorrelación es distinto de cero}
 \end{array}
 \]</span></p>
-<p>Entonces si <span class="math inline">\(LB\)</span> excede el valor crítico de la tabla <span class="math inline">\(Ji\)</span> cuadrada al nivel de significancia seleccionado, no se acepta la hipótesis de que todos los coeficientes de autocorrelación son iguales a cero, por lo tanto al menos algunos de ellos deben ser diferentes de cero.</p>
+<p>Entonces si <span class="math inline">\(LB\)</span> excede el valor crítico de la tabla <span class="math inline">\(Ji\)</span> cuadrada al nivel de significancia seleccionado, no se acepta la hipótesis de que todos los coeficientes de autocorrelación son iguales a cero, por lo tanto al menos algunos de ellos deben ser diferentes de cero<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 
 </div>
 </div>
@@ -226,6 +227,12 @@ H_0:\mbox{Las autocorrelaciones son independientes} &amp; H_1: \mbox{Las autocor
 <div id="ref-cryer2008time">
 <p>Cryer, Jonathan D, and Kung-Sik Chan. 2008. <em>Time Series Analysis: With Applications in R</em>. Springer Science &amp; Business Media.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Originalmente la prueba esta diseñada para comprobar estadísticamente si las observaciones son independientes entre sí, bajo esta hipótesis, los coeficientes de correlación serán cero y el estadístico <span class="math inline">\(LB\)</span> será cercano a cero. Esta prueba es de gran ayuda para ver la calidad del modelo que se aplique y para validar las hipótesis que se puedan requerir en la construcción de intervalos de predicción. Se hablará más de su uso en el capítulo <a href="modelacion-univariada.html#modelacion-univariada">10</a>.<a href="funciones-de-autocovarianza-y-autocorrelación.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
