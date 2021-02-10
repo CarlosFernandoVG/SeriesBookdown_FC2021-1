@@ -190,7 +190,7 @@ f(X_t,X_{t+1}, ... , X_{t+m}) = f(X_{t+k}, X_{t+k+1}, ... , X_{t+k+m}) &amp; \fo
 </div>
 <div id="ruido-blanco-white-noise" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Ruido blanco (“white noise”)</h2>
-<p>Un ruido blanco es un caso simple de los procesos estocásticos, donde los valores son independientes e idénticamente distribuidos a lo largo del tiempo con media cero e igual varianza, se denota por <span class="math inline">\(\epsilon_t\)</span>.
+<p>Un ruido blanco<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> es un caso simple de los procesos estocásticos, donde los valores son independientes e idénticamente distribuidos a lo largo del tiempo con media cero e igual varianza, se denota por <span class="math inline">\(\epsilon_t\)</span>.
 <span class="math display">\[
 \begin{array}{c}
 \epsilon_t \sim N(0,\sigma^2)\\
@@ -211,6 +211,12 @@ Cov(\epsilon_{t_i},\epsilon_{t_j})=0 \space \forall t_i \neq t_j
 
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>El nombre de ruido blanco puede explicarse fácilmente en el análisis espectral en series de tiempo, el cual hace un estudio sobre la frecuencia y no tanto sobre el tiempo. Este no se verá en este material pero se puede estudiar a detalle esto en el libro <span class="citation">Cryer and Chan (<a href="#ref-cryer2008time" role="doc-biblioref">2008</a>)</span>. Bajo un análisis espectral, en un proceso de ruido, su función de densidad espectral (se puede pensar la densidad espectral como la cantidad de varianza en un intervalo <span class="math inline">\((\omega, \omega+d\omega)\)</span> que aporta un modelo basado en una serie de Fourier) es constante, es decir que esto sucede para todas las frecuencias. Esto es análogo al espectro de luz blanca en el ámbito físico; ya que todos los colores se distribuyen uniformemente para formar la luz blanca.<a href="procesos-estocásticos.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

@@ -25,7 +25,7 @@ En resumen, si una serie es estacionaria, su media, su varianza y su autocovaria
 
 ## Ruido blanco ("white noise")
 
-Un ruido blanco es un caso simple de los procesos estocásticos, donde los valores son independientes e idénticamente distribuidos a lo largo del tiempo con media cero e igual varianza, se denota por $\epsilon_t$.
+Un ruido blanco[^1.1] es un caso simple de los procesos estocásticos, donde los valores son independientes e idénticamente distribuidos a lo largo del tiempo con media cero e igual varianza, se denota por $\epsilon_t$.
 $$
 \begin{array}{c}
 \epsilon_t \sim N(0,\sigma^2)\\
@@ -78,3 +78,5 @@ La anterior gráfica esta basada en 100 simulaciones de una normal estándar baj
 
 ### Ejercicio
 Reproducir la caminata aleatoria y ver ¿qué sucede al aumentar el número de simulaciones $(n=1000)$? ¿Por qué sucede este nuevo comportamiento?
+
+[^1.1]: El nombre de ruido blanco puede explicarse fácilmente en el análisis espectral en series de tiempo, el cual hace un estudio sobre la frecuencia y no tanto sobre el tiempo. Este no se verá en este material pero se puede estudiar a detalle esto en el libro @cryer2008time. Bajo un análisis espectral, en un proceso de ruido, su función de densidad espectral (se puede pensar la densidad espectral como la cantidad de varianza en un intervalo $(\omega, \omega+d\omega)$ que aporta un modelo basado en una serie de Fourier) es constante, es decir que esto sucede para todas las frecuencias. Esto es análogo al espectro de luz blanca en el ámbito físico; ya que todos los colores se distribuyen uniformemente para formar la luz blanca.
